@@ -5,12 +5,12 @@ const PORT = process.env.PORT || 3623
 const path = require("path")
 
 //midleware for every request
-app.use(morgan("dev"))
+// app.use(morgan("dev"))
 app.use('/', express.json())
 app.use(express.static(path.join(__dirname, "client", "build")))
 
 //routes
-app.use("/booking", require("/routes/bookingRouter.js"))
+app.use("/booking", require("./routes/bookingRouter.js"))
 
 //DB connection
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/o-d', { useNewUrlParser: true })

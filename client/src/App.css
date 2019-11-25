@@ -4,4 +4,18 @@ body{
 .home{
     height: 100vh;
     background-image: url('https://wallpapercave.com/wp/wp3350141.jpg');
+    display: grid;
+    background-position: center;
+    background-size: cover;
+    grid-template-columns: 1fr 1fr;
+}
+.home-signup{
+    display: flex;
+    flex-direction: column;
+}
+.home-signup-side{
+    background-color: white;
+    width: 80%;
+    height: 90%;
+    margin: auto;
 }
