@@ -9,7 +9,7 @@ app.use(morgan("dev"))
 app.use('/', express.json())
 app.use(express.static(path.join(__dirname, "client", "build")))
 
-//routs
+//routes
 app.use("/booking", require("/routes/bookingRouter.js"))
 
 //DB connection
