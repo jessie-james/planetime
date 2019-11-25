@@ -6,7 +6,9 @@ import Home from './User/Home'
 const App = () => {
     return (
         <div>
-            <Home/>
+            <Switch>
+                <Route exact path='/' component={Home} />
+            </Switch>
         </div>
     )
 }
