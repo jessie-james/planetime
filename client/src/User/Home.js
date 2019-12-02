@@ -37,7 +37,7 @@ const Home = () => {
                         <li>We arent responsible for your death</li>
                         <li>dont drink and fly</li>
                         <li>please keep your hands and feet inside the plane at all times</li>
-                        <h4>full disclaimer can be read <a href='https://google.com'>here</a></h4>
+                        <h4>full disclaimer can be read <a target='_blank' href='https://google.com'>here</a></h4>
                     </ul>
                 </div>
             <button>Book Now!! >> </button>
