@@ -8,11 +8,12 @@ const Home = () => {
                     <label htmlFor="">Name</label><input placeholder='First Name' type="text"/>
                     <input type="text" placeholder='Last Name'/>
                     <label htmlFor="">Birthday</label><input type="date"/>
-                    <label htmlFor="">Start date</label><input type="date"/>
+                    <label htmlFor="">Start date</label><input type="date" />
                     <label htmlFor="">End Date</label><input type="date"/>
                     <input type="time"/>
                     <input type="time"/>
                 </form>
+                    {console.log()}
                 <div>
                     <h3>Rulez</h3>
                     <ul>
