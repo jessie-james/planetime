@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+// import emailjs from 'emailjs-com';
 
 class Emailbutton extends Component {
   constructor(props) {
@@ -14,7 +15,6 @@ class Emailbutton extends Component {
 
   handleSubmit (event) {
 	const templateId = 'template_qQqf4uzW';
-
 	this.sendFeedback(templateId, {message_html: this.state.feedback, from_name: this.state.name, reply_to: this.state.email})
   }
 
@@ -25,12 +25,11 @@ class Emailbutton extends Component {
   	).then(res => {
     	console.log('Email successfully sent!')
   	})
-  	// Handle errors here however you like, or use a React error boundary
   	.catch(err => console.error('Oh well, you failed. Here some thoughts on the error that occured:', err))
   }
 
   render() {
-	return (      
+	return (
   	<form className="test-mailing">
     	<div>
       	<textarea
@@ -44,6 +43,7 @@ class Emailbutton extends Component {
       	/>
     	</div>
     	<input type="button" value="Submit" className="email-submit-button" onClick={this.handleSubmit} />
+		<input type="file" name="my_file"/> 
   	</form>
 	)
   }
