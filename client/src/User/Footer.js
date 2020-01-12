@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Emailbutton from "./Emailbutton.js";
+// import { Linking } from 'react-native'
 import "../styles/footer.css";
 
 class Footer extends Component {
@@ -31,6 +32,9 @@ class Footer extends Component {
         ) : (
           <Emailbutton />
         )}
+        <p className="send-attach">Please attach a copy of your pilots licence and a copy of renters insurance and email them to <span>grnpiperarrowii75@gmail.com</span></p>
+        {/* <Button onPress={() => Linking.openURL('mailto:support@example.com?subject=SendMail&body=Description') }
+      title="support@example.com" /> */}
       </footer>
     );
   }
