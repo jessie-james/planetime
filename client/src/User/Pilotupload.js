@@ -1,22 +1,59 @@
-import React from 'react';
+import React, {Component} from 'react';
+import {storage} from '../User/firebase/Firebase.js'
 
-const Pilotupload = () => {
+class Pilotupload extends Component {
+    constructor() {
+        super()
+        this.state = {
+            image: null,
+            url: '',
+            progress: 0
+        }
+        this.handleChange = this.handleChange.bind(this)
+        this.handleUpload = this.handleUpload.bind(this)
+        }
 
-    // function formSubmit(event) {
-    // event.preventDefault();
-    // emailjs.sendForm('naeaman_gmail_com', 'template_qQqf4uzW', this);
-    // }
+        handleChange = e => {
+            if(e.target.files[0]){
+                const image = e.target.files[0]
+                this.setState(() => ({image}))
+            }
+        }
 
+        handleUpload = e => {
+            const {image} = this.state
+            const uploadTask = storage.ref(`images/${image.name}`).put(image)
+            uploadTask.on('state_changed', 
+            (snapshot) => {
+                // progress function
+                const progress = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100)
+                this.setState({progress})
+            }, 
+            (error) => {
+                //error function
+                console.log(error)
+            }, 
+            () => {
+                //complete function
+                storage.ref('images').child(image.name).getDownloadURL().then(url => {
+                    console.log(url)
+                    this.setState({url})
+                })
+            })
+        }
 
-    return(
-    
-    <form enctype="multipart/form-data" method="post" onsubmit="formSubmit()">
-    <label>Attach file:</label>
-    <input type="file" name="my_file"/> 
-    <input type="submit" value="Submit"/>
-    </form>
-    
-    )
+        render() {
+            return(
+                <div className='upload-info'>
+                    <progress value={this.state.progress} max="100" />
+                    <br/>
+                    <input type="file" onChange={this.handleChange} />
+                    <button onClick={this.handleUpload} >Upload img</button>
+                    <br /><br />
+                    <img src={this.state.url || 'http://via.placeholder.com/150x150'} alt="Uploaded imgages" height="150" width="150" />
+                </div>
+            )
+        
+    }
 }
-
 export default Pilotupload

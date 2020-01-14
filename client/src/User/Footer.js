@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Emailbutton from "./Emailbutton.js";
 import "../styles/footer.css";
+// import Pilotupload from "./Pilotupload"
 
 class Footer extends Component {
   constructor() {
@@ -22,8 +23,9 @@ class Footer extends Component {
         <p className="style-O">O</p>
         <p className="style-Bar">-Bar-</p>
         <p className="style-D">D</p>
+        
         <button className="email-us-button" onClick={this.handleToggle}>
-          Email Us
+          Email me
         </button>
         <br />
         {!this.state.toggleEmail ? (
@@ -31,6 +33,9 @@ class Footer extends Component {
         ) : (
           <Emailbutton />
         )}
+        
+        {/* <p className="send-attach">Please attach a copy of your pilots licence and a copy of renters insurance and email them to <span>grnpiperarrowii75@gmail.com</span></p> */}
+        
       </footer>
     );
   }
