@@ -1,6 +1,6 @@
 const express = require("express")
 const bookingRouter = express.Router()
-const Booking = require("../routes/bookingRouter")
+const Booking = require("../modles/booking.js")
 
 bookingRouter.get("/", (req, res, next) => {
     Booking.find((err, booking)=>{
@@ -44,10 +44,10 @@ bookingRouter.put("/:_id", (req, res, next) => {
 bookingRouter.delete("/:_id", (req, res, next) => {
     Booking.findOneAndRemove({_id: req.params._id}, (err, deletedBook) => {
         if(err){
-            res.status(500);
+            res.status(500).alert(`you had deleated ${deletedBook._id}`);
             next(err);
         }else{
-            res.status(202).send({message: `you have deleted ${deletedBook._id}`, _id: deletedPic._id })
+            res.status(202).send({message: `you have deleted ${deletedBook._id}`, _id: deletedBook._id })
         }      
     })
 })
