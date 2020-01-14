@@ -5,6 +5,7 @@ import Home from './User/Home'
 import Navbar from './User/Navbar'
 import Footer from './User/Footer'
 import Pilotupload from './User/Pilotupload'
+import Information from './User/Information'
 
 
 
@@ -14,6 +15,7 @@ const App = () => {
             <Navbar />
             <Switch>
                 <Route exact path='/' component={Home} />
+                <Route path='/info' component={Information} />
             </Switch>
             <Pilotupload />
             <Footer />
