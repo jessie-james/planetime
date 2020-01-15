@@ -16,15 +16,21 @@ class Information extends Component {
             [name]: value
         })
     }
+    handleSubmit = (e) => {
+        e.preventDefault()
+    }
     render() {
         return (
             <div className='payment'>
-                <CreditCardInput
-                cardNumberInputProps={{ name: 'number', value: this.state.number, onChange: this.handleChange }}
-                cardExpiryInputProps={{name: 'expire', value: this.state.expire, onChange: this.handleChange }}
-                cardCVCInputProps={{name: 'cvc', value: this.state.cvc, onChange: this.handleChange }}
-                fieldClassName="input"
-                />
+                <form action="" onSubmit={this.handleSubmit}>
+                    <CreditCardInput
+                    cardNumberInputProps={{ name: 'number', value: this.state.number, onChange: this.handleChange }}
+                    cardExpiryInputProps={{name: 'expire', value: this.state.expire, onChange: this.handleChange }}
+                    cardCVCInputProps={{name: 'cvc', value: this.state.cvc, onChange: this.handleChange }}
+                    fieldClassName="input"
+                    />
+                    <button></button>
+                </form>
             </div>
         )
     }
