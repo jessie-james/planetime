@@ -15,9 +15,10 @@ const App = () => {
             <Navbar />
             <Switch>
                 <Route exact path='/' component={Home} />
+                <Route path='/upload' component={Pilotupload} />
                 <Route path='/info' component={Information} />
             </Switch>
-            <Pilotupload />
+            
             <Footer />
         </div>
     )

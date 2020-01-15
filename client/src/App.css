@@ -2,7 +2,7 @@ body{
     margin: 0;
 }
 .home{
-    height: 100vh;
+    height: 80vh;
     background-image: url('https://wallpapercave.com/wp/wp3350141.jpg');
     display: grid;
     background-position: center;

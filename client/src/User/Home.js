@@ -1,7 +1,7 @@
 import React from 'react'
 import Calander from './Calander'
 
-const Home = () => {
+const Home = (props) => {
     return (
         <div>
             <div className='home'>
@@ -44,7 +44,7 @@ const Home = () => {
                             <h4>full disclaimer can be read <a target='blank' href='https://google.com'>here</a></h4>
                         </ul>
                     </div>
-                <button>Book Now!! >> </button>
+                <button onClick={() => props.history.push('/upload')}>Book Now!! >> </button>
                 </div>
                 <div>
                     {/* res overview here */}

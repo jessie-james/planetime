@@ -6,7 +6,7 @@ import '../styles/navbar.css'
 function Navbar() {
     return (
         <div className='navbar-styles'>
-            <Link to='/home' className='navbar-style'>
+            <Link to='/' className='navbar-style'>
                 <p className='style-O'>O</p>
                 <p className='style-Bar'>-Bar-</p>
                 <p className='style-D'>D</p> 

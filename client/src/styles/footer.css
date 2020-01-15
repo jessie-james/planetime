@@ -1,38 +1,29 @@
 .footer-style {
     display: flex;
-    height: 30px;
+    height: 15vh;
     width: auto;
     background-color: rgb(202, 221, 243);
-    padding-left: 12px;
-    margin-top: 30px;
-    padding-bottom: 40px;
     font-family: 'Lobster', cursive;
     box-shadow: 0 0 8px 8px rgba(207, 199, 210, .8) inset;
+    align-items: center;
 }
 
 .filler {
-    height: 100px;
+    height: 10vh;
     width: auto;
     background-color: blueviolet;
 }
-
-.email-submit-button{
-    margin: 14px;
-}
-
 .email-us-button {
-    margin: 13px;
+    height: 30px;
 }
 
 .email-mail-form {
-    height: 40px;
+    height: 10vh;
     width: 360px;
     margin-left: 10px;
     margin-right: 10px;
 }
-
 .test-mailing {
     display: flex;
-    background-color: coral;
     color: black;
 }
