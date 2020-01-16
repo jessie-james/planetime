@@ -7,14 +7,25 @@ class Calander extends Component {
 
         this.state= {
             date: new Date(),
-            display: false
+            display: false,
+            selectRang: false,
+            dayMode: false
         }
     }
     onChange = date => this.setState({ date })
+
     displayClick = (e) => {
         e.preventDefault()
-        
+        this.setState({display: !this.state.display}) 
     }
+
+    startSelct = (e) => {
+        e.preventDefault()
+        this.setState({
+            selectRang: !this.state.selectRang,
+            dayMode: !this.state.dayMode
+        })}
+
     render(){
         return(
             <div>
@@ -23,7 +34,9 @@ class Calander extends Component {
                     <CalanderDate 
                         onChange={this.onChange}
                         value={this.state.date}
-                    />
+                        selectRange={this.state.selectRang}
+                        />
+                <button onClick={this.startSelct}>Turn multiple day mode {this.state.dayMode === false ? 'on' : 'off'}</button>
                 </div>
             </div>
         )
