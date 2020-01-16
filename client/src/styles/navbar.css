@@ -12,11 +12,10 @@ font-family: 'Permanent Marker', cursive; */
     display: flex;
     height: 5vh;
     width: auto;
-    background-color: rgb(202, 221, 243);
+    background-color: black;
     padding-left: 12px;
     padding-bottom: 40px;
     font-family: 'Lobster', cursive;
-    box-shadow: 0 0 8px 8px rgba(207, 199, 210, .8) inset;
 }
 
 .navbar-style {
@@ -38,17 +37,17 @@ font-family: 'Permanent Marker', cursive; */
 
 .style-O {
     font-size: 30px;
-    color: black;
+    color: white;
 }
 
 .style-Bar {
     font-size: 15px;
-    color: rgb(62, 59, 87);
+    color: white;
     display: flex;
     margin-top: 10px;
 }
 
 .style-D {
     font-size: 30px;
-    color: black;
+    color: white;
 }
