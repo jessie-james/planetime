@@ -10,7 +10,7 @@ font-family: 'Permanent Marker', cursive; */
 
 .navbar-styles {
     display: flex;
-    height: 30px;
+    height: 5vh;
     width: auto;
     background-color: rgb(202, 221, 243);
     padding-left: 12px;
