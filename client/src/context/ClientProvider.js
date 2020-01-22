@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios'
 
 const ClientContext = React.createContext();
 
@@ -6,8 +7,9 @@ class ClientProvider extends Component {
   constructor() {
     super();
     this.state = {
-      client: [],
-      name: ""
+      firstName: "",
+      lastName: "",
+      pilotLicenseUrl: ""
     };
   }
 
@@ -18,45 +20,38 @@ class ClientProvider extends Component {
     });
   };
 
-  handleGet = e => {
-    e.preventDefault();
+  getClients = () => {
     axios
-      .get(`/client/`, inputs)
+      .get("/client")
       .then(res => {
-        console.log(res);
-        console.log(res.data);
+        this.setState({
+          clients: res.data
+        });
       })
-      .catch(err => console.log(err.data));
-  };
-
-  handlePost = e => {
-    e.preventDefault();
-    axios
-      .post(`/client/`, inputs)
-      .then(res => {
-        console.log(res);
-        console.log(res.data);
-      })
-      .catch(err => console.log(err.data));
+      .catch(err => console.log(err));
   };
 
   render() {
     return (
-      <ClientContext.Provider
-        value={{
-          name: this.state.name
-        }}
-      >
-        {this.props.children}
-      </ClientContext.Provider>
+      <div>
+        <ClientContext.Provider
+          value={{
+            clients: this.state.clients,
+            getClients: this.getClients
+          }}
+        >
+          {this.props.children}
+        </ClientContext.Provider>
+      </div>
     );
   }
 }
 
-export const withContext = C => props => (
+export default ClientProvider;
+
+//functional programming paradigm
+export const withClients = C => props => (
   <ClientContext.Consumer>
     {value => <C {...value} {...props} />}
   </ClientContext.Consumer>
 );
-
-export default ClientProvider;
