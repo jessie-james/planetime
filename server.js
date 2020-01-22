@@ -1,19 +1,31 @@
 const express = require('express')
-const mongoose = require('mongoose')
 const app = express()
+const mongoose = require('mongoose')
+const morgan = require('morgan')
+const expressJwt = require('express-jwt')
 const PORT = process.env.PORT || 3623
+require("dotenv").config()
 const path = require("path")
 
 //midleware for every request
-// app.use(morgan("dev"))
 app.use('/', express.json())
 app.use(express.static(path.join(__dirname, "client", "build")))
+app.use(morgan("dev")) //logger
+app.use("/api/client", require('./routes/clientRouter.js'))
 
 //routes
 app.use("/booking", require("./routes/bookingRouter.js"))
+app.use("/auth", require('./routes/authRouter.js'))
+app.use("/api", expressJwt({secret: process.env.SECRET}))
 
 //DB connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/o-d', { useNewUrlParser: true })
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/o-d', 
+{ 
+    useNewUrlParser: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+    useUnifiedTopology: true
+})
     .then(() => {
         console.log('mongoose is connected to o-d')
     })
@@ -24,6 +36,15 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/o-d', { u
 app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
+
+//err handler
+app.use((err, res, next) => {
+    console.log(err)
+    if(err.name === "UnauthorizedErr"){
+        res.status(err.status)
+    }
+    return res.send({errMsg: err.message})
+})
 
 //Port connection
 app.listen(PORT, () => {
