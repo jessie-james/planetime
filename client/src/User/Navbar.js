@@ -11,8 +11,8 @@ function Navbar() {
         <p className="style-D">D</p>
       </Link>
       <p className="signup-login">
-        <Link to="/">Home</Link>
-        <Link to="/auth">Signup/Login</Link>
+        <Link to="/"> / Home / </Link>
+        <Link to="/auth">Create Account or Login</Link>
       </p>
     </div>
   );

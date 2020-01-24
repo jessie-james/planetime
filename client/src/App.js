@@ -4,7 +4,6 @@ import "./App.css";
 import Home from "./User/Home";
 import Navbar from "./User/Navbar";
 import Footer from "./User/Footer";
-import Pilotupload from "./User/Pilotupload";
 import Auth from "./Auth.js";
 import { withUser } from "./context/UserProvider.js";
 
@@ -25,7 +24,6 @@ class App extends Component {
             }
           />
         </Switch>
-        <Pilotupload />
         <Footer />
       </div>
     );
