@@ -1,10 +1,9 @@
 import firebase from 'firebase/app';
 import 'firebase/storage';
 // import FileUploader from "react-firebase-file-uploader";
-const aKey = `${process.env.apiKey}`
 
 const firebaseConfig = {
-    apiKey: aKey,
+    apiKey: process.env.REACT_APP_API_KEY,
     authDomain: "plane-time-f4fb7.firebaseapp.com",
     databaseURL: "https://plane-time-f4fb7.firebaseio.com",
     projectId: "plane-time-f4fb7",
