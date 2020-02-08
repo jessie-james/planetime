@@ -3,6 +3,7 @@ import AuthForm from "./AuthForm";
 import { withUser } from "./context/UserProvider.js";
 import Pilotupload from "./User/Pilotupload";
 import "./styles/auth.css";
+import SignUpForm from "./SignUpForm";
 
 class Auth extends Component {
   constructor() {
@@ -10,13 +11,26 @@ class Auth extends Component {
     this.state = {
       username: "",
       password: "",
-      formToggle: false
+      password2: "",
+      signAuth: "",
+      signup: "Already a member? Click here",
+      authup: "Click here to create an account",
+      formToggle: false,
+      signAuthToggle: false
     };
   }
 
   toggler = () => {
     this.setState(prevState => ({ formToggle: !prevState.formToggle }));
   };
+
+  signAuth = () => {
+    if(!this.formToggle) {
+      this.signAuthToggle = this.signup
+    } else {
+      this.signAuthToggle = this.authup
+    }}
+  
 
   handleChange = e => {
     const { name, value } = e.target;
@@ -29,7 +43,8 @@ class Auth extends Component {
     e.preventDefault();
     const credentials = {
       username: this.state.username,
-      password: this.state.password
+      password: this.state.password,
+      password2: this.state.password2
     };
     this.props.signup(credentials);
     this.clearInputs();
@@ -48,41 +63,47 @@ class Auth extends Component {
   clearInputs = () => {
     this.setState({
       username: "",
-      password: ""
+      password: "",
+      password2: ""
     });
   };
 
   render() {
     return (
-      <div>
+      <div className="signup-auth-form">
         <br />
-        {this.state.formToggle ? (
-          <>
-            <span className="toggle-signup-login" onClick={this.toggler}>
-              Already a member?
-            </span>
-            <AuthForm
-              username={this.state.username}
-              password={this.state.password}
-              handleChange={this.handleChange}
-              handleSubmit={this.handleSignupSubmit}
-              btnText="Signup"
-            />
-          </>
-        ) : (
-          <>
-            <span className="toggle-signup-login" onClick={this.toggler}>
-              Create an accout
-            </span>
-            <AuthForm
-              username={this.state.username}
-              password={this.state.password}
-              handleChange={this.handleChange}
-              handleSubmit={this.handleLoginSubmit}
-              btnText="Login"
-            />
-          </>
-        )}
+        <span className="toggle-signup-login" onClick={this.toggler}>
+          Toggle here to Signup or to Create an account
+          --  {this.signAuth}
+        </span>
+        
+        <div className="form-container">
+          {this.state.formToggle ? (
+            <>
+              <SignUpForm
+                username={this.state.username}
+                password={this.state.password}
+                password2={this.state.password2}
+                handleChange={this.handleChange}
+                handleSubmit={this.handleSignupSubmit}
+                btnText="Signup"  
+              />
+            </>
+          ) : (
+            <>
+              <AuthForm
+                username={this.state.username}
+                password={this.state.password}
+                handleChange={this.handleChange}
+                handleSubmit={this.handleLoginSubmit}
+                btnText="Login"
+              />
+              {/* <span className="toggle-signup-login" onClick={this.toggler}>
+              Not a member? Click here to create an account
+            </span> */}
+            </>
+          )}
+        </div>
         <Pilotupload />
       </div>
     );

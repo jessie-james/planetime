@@ -1,7 +1,7 @@
 import React from 'react'
 
-const AuthForm = (props) => {
-    const { handleChange, handleSubmit, username, password, btnText } = props
+const SignUpForm = (props) => {
+    const { handleChange, handleSubmit, username, password, password2, btnText } = props
     return(
         <div className="container">
         <form onSubmit={handleSubmit} action="" id="form" className="form">
@@ -22,12 +22,21 @@ const AuthForm = (props) => {
                 value={password} 
                 onChange={handleChange} 
                 placeholder="Password" />
-                <button >{btnText}</button>
                 <br />
+            <input
+                type="password"
+                name="password2"
+                className="form-control"
+                id="password2"
+                value={password2}
+                onChange={handleChange}
+                placeholder="Confirm Password" />
+                <button >{btnText}</button>
         </form>
+        <br />
         </div>
     )
 
 }
 
-export default AuthForm
+export default SignUpForm
