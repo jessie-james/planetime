@@ -74,6 +74,9 @@ class Home extends Component {
                     </div>
                     
                 </div>
+                <div className="sidebox">
+                    
+                </div>
             </div>
         )
         
