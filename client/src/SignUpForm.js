@@ -1,6 +1,14 @@
 import React from "react";
-const AuthForm = props => {
-  const { handleChange, handleSubmit, username, password, btnText } = props;
+
+const SignUpForm = props => {
+  const {
+    handleChange,
+    handleSubmit,
+    username,
+    password,
+    password2,
+    btnText
+  } = props;
 
   return (
     <div className="container">
@@ -26,11 +34,22 @@ const AuthForm = props => {
           onChange={handleChange}
           placeholder="Password"
         />
-        <button>{btnText}</button>
         <br />
+        <p className="form-title-sa">Confirm Password</p>
+        <input
+          type="password"
+          name="password2"
+          className="form-control"
+          id="password2"
+          value={password2}
+          onChange={handleChange}
+          placeholder="Password"
+        />
+        <button>{btnText}</button>
       </form>
+      <br />
     </div>
   );
 };
 
-export default AuthForm;
+export default SignUpForm;
