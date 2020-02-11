@@ -8,8 +8,9 @@ font-family: 'Permanent Marker', cursive; */
     box-sizing: border-box;
 }
 
-.navbar-styles {
+.navbar-style {
     display: flex;
+    justify-content: space-between;
     height: 5vh;
     width: auto;
     background-color: rgb(202, 221, 243);
@@ -19,7 +20,7 @@ font-family: 'Permanent Marker', cursive; */
     box-shadow: 0 0 8px 8px rgba(207, 199, 210, .8) inset;
 }
 
-.navbar-style {
+.logo-style {
     text-align: left;
     display: flex;
     justify-content: left;
@@ -51,4 +52,12 @@ font-family: 'Permanent Marker', cursive; */
 .style-D {
     font-size: 30px;
     color: black;
+}
+
+.signup-login {
+    padding-right: 20px;
+    padding-left: 5px;
+    padding-top: 8px;
+    display: flex;
+    justify-content: right;
 }

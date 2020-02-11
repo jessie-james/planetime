@@ -1,27 +1,39 @@
-import React from 'react'
-import {Route, Switch} from 'react-router-dom'
-import './App.css'
-import Home from './User/Home'
-import Navbar from './User/Navbar'
-import Footer from './User/Footer'
-import Pilotupload from './User/Pilotupload'
-import Information from './User/Information'
+import React, { Component } from "react";
+import { Route, Switch, Redirect } from "react-router-dom";
+import "./App.css";
+import Home from "./User/Home";
+import Navbar from "./User/Navbar";
+import Footer from "./User/Footer";
+import Auth from "./Auth.js";
+import ProtectedRoute from "./shared/ProtectedRoute.js";
+import ClientInfo from '../src/User/ClientInfo.js';
+// import { withUser } from "./context/UserProvider.js";
 
-
-
-const App = () => {
+class App extends Component {
+  render() {
+    const { token } = this.props;
     return (
-        <div>
-            <Navbar />
-            <Switch>
-                <Route exact path='/' component={Home} />
-                <Route path='/upload' component={Pilotupload} />
-                <Route path='/info' component={Information} />
-            </Switch>
-            
-            <Footer />
-        </div>
-    )
+      <div>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" render={rProps => <Home {...rProps} />} />
+          <Route
+            path="/auth"
+            render={rProps =>
+              token ? <Redirect to="/ClientInfo/" /> : <Auth {...rProps} />
+            }
+          />
+          <ProtectedRoute
+          path="/ClientInfo"
+          component={ClientInfo}
+          redirectTo="/"
+        />
+          
+        </Switch>
+        <Footer />
+      </div>
+    );
+  }
 }
 
-export default App
+export default App;
