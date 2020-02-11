@@ -5,7 +5,9 @@ import Home from "./User/Home";
 import Navbar from "./User/Navbar";
 import Footer from "./User/Footer";
 import Auth from "./Auth.js";
-import { withUser } from "./context/UserProvider.js";
+import ProtectedRoute from "./shared/ProtectedRoute.js";
+import ClientInfo from '../src/User/ClientInfo.js';
+// import { withUser } from "./context/UserProvider.js";
 
 class App extends Component {
   render() {
@@ -14,15 +16,19 @@ class App extends Component {
       <div>
         <Navbar />
         <Switch>
-          {/* <Route exact path='/' component={Home} /> */}
-
           <Route exact path="/" render={rProps => <Home {...rProps} />} />
           <Route
             path="/auth"
             render={rProps =>
-              token ? <Redirect to="/" /> : <Auth {...rProps} />
+              token ? <Redirect to="/ClientInfo/" /> : <Auth {...rProps} />
             }
           />
+          <ProtectedRoute
+          path="/ClientInfo"
+          component={ClientInfo}
+          redirectTo="/"
+        />
+          
         </Switch>
         <Footer />
       </div>

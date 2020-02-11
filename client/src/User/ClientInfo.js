@@ -1,22 +1,14 @@
-import React, { Component } from 'react'
+import React from "react";
+import Pilotupload from "../User/Pilotupload";
 
-class ClientInfo extends Component {
-    constructor() {
-        super()
-        this.state = {
-            firstName: "",
-            lastName: "",
-            birthDate: Date,
-            pilotLicenseUrl: ""
-        }
-    }
-    render(){
-        return(
-            <div>
-                
-            </div>
-        )
-    }
-}
+
+const ClientInfo = () => {
+  return (
+    <div>
+      <h1>Cliet Info Page</h1>
+      <Pilotupload />
+    </div>
+  );
+};
 
 export default ClientInfo

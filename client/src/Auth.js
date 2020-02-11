@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import AuthForm from "./AuthForm";
 import { withUser } from "./context/UserProvider.js";
-import Pilotupload from "./User/Pilotupload";
 import "./styles/auth.css";
 import SignUpForm from "./SignUpForm";
 
@@ -12,9 +11,7 @@ class Auth extends Component {
       username: "",
       password: "",
       password2: "",
-      signAuth: "",
-      signup: "Already a member? Click here",
-      authup: "Click here to create an account",
+      signAuth: "Click here to create an account",
       formToggle: false,
       signAuthToggle: false
     };
@@ -22,15 +19,16 @@ class Auth extends Component {
 
   toggler = () => {
     this.setState(prevState => ({ formToggle: !prevState.formToggle }));
+    this.signAuth();
   };
 
   signAuth = () => {
-    if(!this.formToggle) {
-      this.signAuthToggle = this.signup
+    if (!this.state.formToggle) {
+      this.setState({ signAuth: "Already a member? Click here" });
     } else {
-      this.signAuthToggle = this.authup
-    }}
-  
+      this.setState({ signAuth: "Click here to create an account" });
+    }
+  };
 
   handleChange = e => {
     const { name, value } = e.target;
@@ -46,8 +44,14 @@ class Auth extends Component {
       password: this.state.password,
       password2: this.state.password2
     };
-    this.props.signup(credentials);
-    this.clearInputs();
+    if (this.state.password === this.state.password2) {
+      this.props.signup(credentials);
+      this.clearInputs();
+      
+    } else {
+      window.alert("Passwords do not match");
+      return;
+    }
   };
 
   handleLoginSubmit = e => {
@@ -71,12 +75,10 @@ class Auth extends Component {
   render() {
     return (
       <div className="signup-auth-form">
-        <br />
         <span className="toggle-signup-login" onClick={this.toggler}>
-          Toggle here to Signup or to Create an account
-          --  {this.signAuth}
+          {this.state.signAuth}
         </span>
-        
+
         <div className="form-container">
           {this.state.formToggle ? (
             <>
@@ -86,7 +88,7 @@ class Auth extends Component {
                 password2={this.state.password2}
                 handleChange={this.handleChange}
                 handleSubmit={this.handleSignupSubmit}
-                btnText="Signup"  
+                btnText="Signup"
               />
             </>
           ) : (
@@ -98,13 +100,9 @@ class Auth extends Component {
                 handleSubmit={this.handleLoginSubmit}
                 btnText="Login"
               />
-              {/* <span className="toggle-signup-login" onClick={this.toggler}>
-              Not a member? Click here to create an account
-            </span> */}
             </>
           )}
         </div>
-        <Pilotupload />
       </div>
     );
   }
