@@ -45,6 +45,9 @@ class Pilotupload extends Component {
         render() {
             return(
                 <div className='upload-info'>
+                    <br/>
+                    Please upload a copy of your pilot license:
+                    <br/><br/>
                     <progress value={this.state.progress} max="100" />
                     <br/>
                     <input type="file" onChange={this.handleChange} />

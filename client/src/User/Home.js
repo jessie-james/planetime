@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
-import Calander from './Calander'
+import Calander from './Calander.js'
+import ResOverview from './../ResOverview.js'
 
 class Home extends Component {
     constructor(props){
@@ -60,22 +61,18 @@ class Home extends Component {
                         <div>
                             <h3>Things to keep in mind:</h3>
                             <ul>
-                                <li>We arent responsible for your death</li>
+                                <li>Jeremy takes full responsibility if you die</li>
                                 <li>dont drink and fly</li>
                                 <li>please keep your hands and feet inside the plane at all times</li>
                                 <h4>full disclaimer can be read <a target='blank' href='https://google.com'>here</a></h4>
                             </ul>
                         </div>
-                    {/* <button onClick={() => props.history.push('/upload')}>Book Now!!>>> </button> } */}
-                    <button onClick={this.handleSubmit}>sub</button>
+                        {/* <button onClick={() => props.history.push('/upload')}>Book Now!!>>> </button> } */}
+                        <button onClick={this.handleSubmit}>sub</button>
                     </div>
-                    <div>
-                        {/* res overview here */}
-                    </div>
-                    
                 </div>
-                <div className="sidebox">
-                    
+                <div className = "resOverBox">
+                    <ResOverview/>
                 </div>
             </div>
         )

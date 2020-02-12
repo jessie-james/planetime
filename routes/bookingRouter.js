@@ -1,6 +1,6 @@
 const express = require("express")
 const bookingRouter = express.Router()
-const Booking = require("../modles/booking.js")
+const Booking = require("../models/booking.js")
 
 bookingRouter.get("/", (req, res, next) => {
     Booking.find((err, booking)=>{
