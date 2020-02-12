@@ -12,7 +12,9 @@ body{
 .home-signup{
     display: flex;
     flex-direction: column;
-
+}
+.resOverBox{
+    grid-column-start: 2
 }
 .home-signup-side{
     background-color: white;
@@ -20,6 +22,7 @@ body{
     height: 90%;
     margin: auto;
     overflow: auto;
+    display: inline;
 }
 .plane-gallery-grid{
     display: grid;
