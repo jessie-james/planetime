@@ -26,7 +26,7 @@ class Home extends Component {
     
     render(props){
         return (
-            <div>
+            <div className='home-grid'>
                 <div className='home'>
                     <div className='home-signup-side'>
                         <form action="" className='home-signup'>

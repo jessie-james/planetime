@@ -1,13 +1,19 @@
 body{
     margin: 0;
 }
-.home{
+
+.home-grid{
     height: 80vh;
     background-image: url('https://wallpapercave.com/wp/wp3350141.jpg');
     display: grid;
     background-position: center;
     background-size: cover;
     grid-template-columns: 1fr 1fr;
+}
+.home{
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 1fr;
 }
 .home-signup{
     display: flex;
