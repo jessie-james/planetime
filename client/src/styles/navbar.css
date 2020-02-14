@@ -50,8 +50,7 @@ font-family: 'Permanent Marker', cursive; */
 
 .style-D {
     font-size: 30px;
-<<<<<<< HEAD
-    color: black;
+    color: white;
 }
 
 .signup-login {
@@ -60,7 +59,4 @@ font-family: 'Permanent Marker', cursive; */
     padding-top: 8px;
     display: flex;
     justify-content: right;
-=======
-    color: white;
->>>>>>> info
 }
