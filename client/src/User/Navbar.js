@@ -11,7 +11,7 @@ function Navbar() {
         <p className="style-D">D</p>
       </Link>
       <p className="signup-login">
-        <Link to="/auth">Create Account or Login</Link>
+        <Link to="/auth">Jessie's Login</Link>
       </p>
     </div>
   );

@@ -59,4 +59,5 @@ font-family: 'Permanent Marker', cursive; */
     padding-top: 8px;
     display: flex;
     justify-content: right;
+    color: white;
 }
