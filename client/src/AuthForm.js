@@ -1,4 +1,5 @@
 import React from "react";
+
 const AuthForm = props => {
   const { handleChange, handleSubmit, username, password, btnText } = props;
 
