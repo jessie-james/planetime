@@ -1,6 +1,6 @@
 import React from "react";
 import '.././styles/clientpage.css'
-// import Pilotupload from "../User/Pilotupload";
+import Pilotupload from "../User/Pilotupload";
 
 
 const ClientInfo = () => {
@@ -12,7 +12,7 @@ const ClientInfo = () => {
       <br/><br/><br/>
       <p> test test </p>
       <br/><br/><br/><br/>
-      {/* <Pilotupload /> */}
+      <Pilotupload />
     </div>
   );
 };
