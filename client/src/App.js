@@ -6,9 +6,9 @@ import Navbar from "./User/Navbar";
 import Footer from "./User/Footer";
 import Auth from "./Auth.js";
 // import ProtectedRoute from "./shared/ProtectedRoute.js";
-import ClientInfo from './User/ClientInfo';
-import './styles/navbar.css'
-import Pilotupload from "./User/Pilotupload";
+import ClientInfo from "./User/ClientInfo";
+import "./styles/navbar.css";
+// import Pilotupload from "./User/Pilotupload";
 // import { withUser } from "./context/UserProvider.js";
 
 class App extends Component {
@@ -26,18 +26,18 @@ class App extends Component {
             }
           />
           <Route
-          path="/clientinfo"
-          render={rProps =>
-            !token ? <Redirect to="/auth" /> : <ClientInfo />
-          }
-        />
+            path="/clientinfo"
+            render={rProps =>
+              !token ? <Redirect to="/auth" /> : <ClientInfo />
+            }
+          />
           {/* <ProtectedRoute
           path="/ClientInfo"
           component={ClientInfo}
           redirectTo="/"
         /> */}
-        <Pilotupload />
-          {/* <ClientInfo /> */}
+          {/* <Pilotupload /> */}
+          <ClientInfo />
         </Switch>
         <Footer />
       </div>

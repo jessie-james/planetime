@@ -6,7 +6,6 @@ import Pilotupload from "../User/Pilotupload";
 const ClientInfo = () => {
   return (
     <div className="client-page">
-      console.log("object");
       <h1>Cliet Info Page</h1>
       <h2>Test Test Test</h2>
       <br/><br/><br/>

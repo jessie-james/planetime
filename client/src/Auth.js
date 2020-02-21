@@ -67,7 +67,7 @@ class Auth extends Component {
     this.props.login(credentials);
     this.clearInputs();
     console.log("handleLoginSubmit is firing"); 
-    // this.props.history.push("./User/ClientInfo");
+    this.props.history.push("./User/ClientInfo");
   };
 
   clearInputs = () => {
