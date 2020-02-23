@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import {storage} from '../User/firebase/Firebase.js'
+import '.././styles/pilotupload.css'
+
+
 
 class Pilotupload extends Component {
     constructor() {
@@ -45,11 +48,10 @@ class Pilotupload extends Component {
         render() {
             return(
                 <div className='upload-info'>
-                    <br/>
+                    <p>
                     Please upload a copy of your pilot license:
-                    <br/><br/>
+                    </p>
                     <progress value={this.state.progress} max="100" />
-                    <br/>
                     <input type="file" onChange={this.handleChange} />
                     <button onClick={this.handleUpload} >Upload img</button>
                     <br /><br />

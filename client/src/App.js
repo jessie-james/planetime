@@ -8,6 +8,7 @@ import Auth from "./Auth.js";
 // import ProtectedRoute from "./shared/ProtectedRoute.js";
 import ClientInfo from "./User/ClientInfo";
 import "./styles/navbar.css";
+import Pilotupload from "./User/Pilotupload";
 // import Pilotupload from "./User/Pilotupload";
 // import { withUser } from "./context/UserProvider.js";
 
@@ -19,6 +20,7 @@ class App extends Component {
         <Navbar />
         <Switch>
           <Route exact path="/" render={rProps => <Home {...rProps} />} />
+          <Route path="/pilotupload" render={rProps => <Pilotupload {...rProps} />} />
           <Route
             path="/auth"
             render={rProps =>
@@ -31,6 +33,7 @@ class App extends Component {
               !token ? <Redirect to="/auth" /> : <ClientInfo />
             }
           />
+
           {/* <ProtectedRoute
           path="/ClientInfo"
           component={ClientInfo}
