@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { Link } from "react-router-dom"
 import Calander from './Calander.js'
 import ResOverview from './../ResOverview.js'
 
@@ -41,6 +42,7 @@ class Home extends Component {
                             {/* <input type="time"/> */}
                         </form>
                         <div>
+                        <Link to="/pilotupload">Please click here to upload a copy of your pilots license and insurance</Link>
                             <h3>Rulez</h3>
                             <ul>
                                 <li>no Moronis allowed</li>

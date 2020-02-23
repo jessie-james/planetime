@@ -9,6 +9,7 @@ class ClientProvider extends Component {
     this.state = {
       firstName: "",
       lastName: "",
+      birthDay: "",
       pilotLicenseUrl: ""
     };
   }
@@ -23,9 +24,12 @@ class ClientProvider extends Component {
   getClients = () => {
     axios
       .get("/client")
-      .then(res => {
+      .then(res =>{
         this.setState({
-          clients: res.data
+          firstName: res.data,
+          lastName: res.data,
+          birthDay: res.data,
+          pilotLicenseUrl: res.data
         });
       })
       .catch(err => console.log(err));
@@ -36,7 +40,10 @@ class ClientProvider extends Component {
       <div>
         <ClientContext.Provider
           value={{
-            clients: this.state.clients,
+            firstName: this.state.firstName,
+            lastName: this.state.lastName,
+            birthDay: this.state.birthDay,
+            pilotLicenseUrl: this.state.pilotLicenseUrl,
             getClients: this.getClients
           }}
         >

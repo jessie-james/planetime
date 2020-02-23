@@ -1,17 +1,20 @@
 import React from "react";
 import '.././styles/clientpage.css'
-import Pilotupload from "../User/Pilotupload";
+import Calander from "../User/Calander";
 
 
-const ClientInfo = () => {
+const ClientInfo = (props) => {
+  const { firstName } = props
+
   return (
     <div className="client-page">
       <h1>Cliet Info Page</h1>
-      <h2>Test Test Test</h2>
-      <br/><br/><br/>
-      <p> test test </p>
-      <br/><br/><br/><br/>
-      <Pilotupload />
+      <h2>can you believe this background color?</h2>
+      <br />
+      <p>{`first name ${props.firstName}`}</p>
+      <br/>
+      {/* <img src={this.props.url} alt="Uploaded imgages" height="150" width="150"/> */}
+      <Calander />
     </div>
   );
 };
