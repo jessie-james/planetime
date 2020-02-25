@@ -2,17 +2,37 @@ const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
 const bookingSchems = new Schema({
-    weekDay: {
-        type: String
+    startWeekDay: {
+        type: String,
+        require: true
     },
-    month:{
-        type: String
+    startMonth:{
+        type: String,
+        require: true
     },
-    day: {
-        type: String
+    startDay: {
+        type: String,
+        require: true
     },
-    year: {
-        type: String
+    startYear: {
+        type: String,
+        require: true
+    },
+    endWeekDay: {
+        type: String,
+        default: "NA"
+    },
+    endMonh: {
+        type: String,
+        default: "NA"
+    },
+    endDay: {
+        type: String,
+        default: "NA"
+    },
+    endYear: {
+        type: String,
+        default: "NA"
     }
     // startTime:{
 
