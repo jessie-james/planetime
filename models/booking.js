@@ -20,19 +20,19 @@ const bookingSchems = new Schema({
     },
     endWeekDay: {
         type: String,
-        default: "NA"
+        default: ""
     },
-    endMonh: {
+    endMonth: {
         type: String,
-        default: "NA"
+        default: ""
     },
     endDay: {
         type: String,
-        default: "NA"
+        default: ""
     },
     endYear: {
         type: String,
-        default: "NA"
+        default: ""
     }
     // startTime:{
 

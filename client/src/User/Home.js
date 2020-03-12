@@ -22,7 +22,7 @@ class Home extends Component {
 
     handleCalendarChange = date => {
        this.setState({ date })
-       console.log(date)
+    //    console.log(date)
     }
     
     // handleSubmit = (e) => {
