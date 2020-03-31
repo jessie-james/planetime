@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box; }
+
+a {
+  text-decoration: none; }
+
+body {
+  font-family: sans-serif; }
+
+.container {
+  margin: 0 auto;
+  max-width: 90%; }
+
+.header .container {
+  display: flex; }
+
+.header__logo {
+  color: red;
+  width: 10%; }
+
+.header__nav {
+  display: none; }
+
+.header__nav-link {
+  color: orange;
+  margin-left: 10px; }
+
+.home__main {
+  display: flex;
+  flex-direction: column; }
+
+.home__plane-info {
+  padding-left: 5%;
+  padding-right: 5%;
+  text-align: center; }
+
+.home__plane-info-spec-list {
+  text-align: left;
+  padding-left: 5%;
+  padding-right: 5%; }
+
+.home__plane-info-spec-list-item {
+  list-style-type: circle; }
+
+.home__schedule {
+  width: 100%; }
+
+.home__times-list {
+  display: flex;
+  flex-wrap: wrap; }
+
+.home__times-list-item {
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  width: 48%;
+  text-align: center;
+  margin-left: 5px;
+  margin-bottom: 5px; }
+  .home__times-list-item--unavailable {
+    background-color: lightgrey; }
+  .home__times-list-item:hover {
+    cursor: grab; }
+
+.react-calendar {
+  min-width: 100%; }

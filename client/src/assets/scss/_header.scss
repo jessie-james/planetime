@@ -1,0 +1,27 @@
+.header {
+  .container{
+    display: flex;
+  }
+
+  &__logo {
+    color: red;
+    width: 10%;
+  }
+
+  &__nav {
+    //mobile
+    display: none;
+    //
+
+    //display: flex;
+    //justify-content: flex-end;
+    //background-color: pink;
+    //width: 90%;
+  }
+
+  &__nav-link {
+    color: orange;
+    margin-left: 10px;
+  }
+
+}

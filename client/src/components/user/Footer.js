@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Emailbutton from "./Emailbutton.js";
-import "../styles/footer.css";
+import Emailbutton from "./Home/Emailbutton.js";
+// import "../styles/footer.css";
 // import Pilotupload from "./Pilotupload"
 
 class Footer extends Component {
