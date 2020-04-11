@@ -15,6 +15,8 @@ authRouter.post("/signup", (req, res, next) => {
       res.status(400);
       return next(new Error("That username is already taken."));
     }
+    console.log("this function is working")
+
   });
   // save a new user
   const newUser = new User(req.body);
@@ -26,6 +28,7 @@ authRouter.post("/signup", (req, res, next) => {
     // create the token
     const token = jwt.sign(savedUser.withoutPassword(), process.env.SECRET);
     // send the response
+
     return res.status(201).send({ user: savedUser.withoutPassword(), token });
   });
 });

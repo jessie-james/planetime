@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import CalendarDate from 'react-calendar'
-
+import axios from 'axios'
+import Cart from './Cart'
 import Times from './Times'
 
 class Calendar extends Component {
@@ -8,6 +9,7 @@ class Calendar extends Component {
     state = {
         user: "",
         date: new Date(),
+        selectedDates: [],
         bookingDates: [],
         display: false,
         selectRang: false,
@@ -15,9 +17,11 @@ class Calendar extends Component {
     }
     onChange = date => {
         this.setState({
-            date: date
+            date: date,
+            selectedDates: [...this.state.selectedDates, this.state.date ]
         })
-        // console.log(this.state.date)
+
+        console.log(this.state.selectedDates)
     }
     displayClick = (e) => {
         e.preventDefault()
@@ -33,48 +37,54 @@ class Calendar extends Component {
         })
     }
 
-    getTime = (e, date) => {
 
-        date = this.state.date
-
-        //Value from time button selection
-        let time = e.target.value.split(",");
-        //Start and end  are in 24 hour format e.g "02:30" (2:30AM). Split by ":".
-        let start = time[0].split(":")
-        let end = time[1].split(":")
-        console.log(start, end)
-
-        //Start and end date are new Date() with start and end time added
-        let startDate = new Date(date.getFullYear(), date.getMonth(), date.getDay(), start[0], start[1])
-        let endDate = new Date(date.getFullYear(), date.getMonth(), date.getDay(), end[0], end[1])
-        console.log("Start Time", startDate)
-        console.log("End TIme", endDate)
-
-        //Booking Date - a booking date object consisting of start and end.
-        const bookingDate = {
-            start: startDate,
-            end: endDate
-        }
-        this.setState({
-            bookingDates: [...this.state.bookingDates, bookingDate]
-
+    //get all bookings
+    getBookings = () => {
+        axios.get("http://localhost:3000/booking")
+            .then((response) => {
+                this.setState({
+                    bookings: response.data
+                })
+            }).catch((err) => {
+            this.setState({
+                errors: err.response.data
+            })
         })
     }
 
+    removeSelectedDate=(selectedDate)=>{
+        const filter =(date)=>{
+            console.log("selectedDate", selectedDate)
+            console.log("filter date")
+            return date !== selectedDate;
+        }
+        this.setState({
+            selectedDates: this.state.selectedDates.filter(filter)
+        })
+        console.log("working remove selected dates")
+        console.log("selectedDates",this.state.selectedDates)
+    }
+
+    componentDidMount() {
+        this.getBookings()
+    }
+
     render() {
-        console.log("Times", this.state.bookingDates)
-        console.log(this.state.date)
         return (
             <div className="home__calendar">
-                <div className={'calendarDisplay'}>
-                    <CalendarDate
-                        calendarType={"ISO 8601"}
-                        onChange={this.onChange}
-                        value={this.state.date}
-                        selectRange={this.state.selectRang}
-                    />
-                    <Times getTime={this.getTime} date={this.date}{...this.state}/>
+                <div className="container">
+                    Click a date below to start booking!
+                    <div className={'calendarDisplay'}>
+                        <CalendarDate
+                            calendarType={"ISO 8601"}
+                            onChange={this.onChange}
+                            value={this.state.date}
+                            selectRange={this.state.selectRang}
+                        />
+                    </div>
                 </div>
+
+                <Cart date={this.state.date} selectedDates={this.state.selectedDates} removeSelectedDate={this.removeSelectedDate}/>
             </div>
         )
     }

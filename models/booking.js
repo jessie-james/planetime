@@ -1,25 +1,27 @@
 const mongoose = require("mongoose") 
 const Schema = mongoose.Schema
 
-const bookingSchems = new Schema({
-    weekDay: {
-        type: String
+const bookingSchema = new Schema({
+    startDate: {
+        type: Date
     },
-    month:{
-        type: String
-    },
-    day: {
-        type: String
-    },
-    year: {
-        type: String
+    endDate:{
+        type: Date
     }
-    // startTime:{
 
+    // weekDay: {
+    //     type: String
     // },
-    // endTime:{
-
+    // month:{
+    //     type: String
+    // },
+    // day: {
+    //     type: String
+    // },
+    // year: {
+    //     type: String
     // }
+
 })
 
-module.exports = mongoose.model("Booking", bookingSchems)
+module.exports = mongoose.model("Booking", bookingSchema)

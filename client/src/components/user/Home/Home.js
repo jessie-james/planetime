@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
-import Boing from './Calendar'
 
 import PlaneInfo from './PlaneInfo'
 import Schedule from './Schedule'
-import Cart from './Cart'
 class Home extends Component {
     constructor(props){
         super()
@@ -33,9 +31,9 @@ class Home extends Component {
                     <PlaneInfo/>
                     <Schedule/>
                 </div>
-                <div className="home__cart">
-                    <Cart />
-                </div>
+                {/*<div className="home__cart">*/}
+                {/*    <Cart />*/}
+                {/*</div>*/}
             </div>
             // <div>
             //     {/*<div className='Home'>*/}
@@ -46,7 +44,7 @@ class Home extends Component {
             //     {/*            <label htmlFor="">Birthday</label><input type="date" name="bithday" value={this.state.bithday} onChange={this.handleChange}/>*/}
             //     {/*            /!* <label htmlFor="">Start date</label><input type="date"/> *!/*/}
             //     {/*            <div><Boing/></div>*/}
-            //     {/*            /!* <label htmlFor="">End Date</label><input type="date"/> *!/*/}
+            //     {/*            /!* <label htmlFor="">End Cart</label><input type="date"/> *!/*/}
             //     {/*            <div></div>*/}
             //     {/*            /!* <input type="time"/> *!/*/}
             //     {/*            /!* <input type="time"/> *!/*/}

@@ -1,5 +1,6 @@
 .home {
   &__main {
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
   }
@@ -7,23 +8,31 @@
   &__plane-info {
     padding-left: 5%;
     padding-right: 5%;
-    text-align: center;
+    //text-align: center;
   }
 
   &__plane-info-header {
+    margin-bottom: 20px;
+    font-size: 30px;
   }
 
   &__plane-info-copy {
+    margin-bottom: 10px;
+    line-height: 1.5;
   }
 
   &__plane-info-spec-list {
     text-align: left;
     padding-left: 5%;
     padding-right: 5%;
+    margin-bottom: 20px;
+    font-weight: lighter;
+    font-size: 14px;
   }
 
   &__plane-info-spec-list-item {
     list-style-type: circle;
+    margin-bottom: 5px;
   }
 
   &__schedule {
@@ -42,7 +51,7 @@
 
   &__times-list-item {
     background-color: transparent;
-    border: 1px solid black;
+    border: 1px solid lightgrey;
     border-radius: 5px;
     padding: 5px;
     width: 48%;
@@ -51,6 +60,10 @@
     margin-bottom: 5px;
     &--unavailable{
       background-color: lightgrey;
+    }
+    &--selected{
+      color: white;
+      background-color: lightblue;
     }
     &:hover{
       cursor: grab;
@@ -69,4 +82,5 @@
 //(Original css file located in npm_modules/react-calendar/dist/Calendar.css)
 .react-calendar {
   min-width: 100%;
+  margin-bottom: 15px;
 }

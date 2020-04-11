@@ -29,21 +29,33 @@ body {
   margin-left: 10px; }
 
 .home__main {
+  margin-top: 30px;
   display: flex;
   flex-direction: column; }
 
 .home__plane-info {
   padding-left: 5%;
-  padding-right: 5%;
-  text-align: center; }
+  padding-right: 5%; }
+
+.home__plane-info-header {
+  margin-bottom: 20px;
+  font-size: 30px; }
+
+.home__plane-info-copy {
+  margin-bottom: 10px;
+  line-height: 1.5; }
 
 .home__plane-info-spec-list {
   text-align: left;
   padding-left: 5%;
-  padding-right: 5%; }
+  padding-right: 5%;
+  margin-bottom: 20px;
+  font-weight: lighter;
+  font-size: 14px; }
 
 .home__plane-info-spec-list-item {
-  list-style-type: circle; }
+  list-style-type: circle;
+  margin-bottom: 5px; }
 
 .home__schedule {
   width: 100%; }
@@ -54,7 +66,7 @@ body {
 
 .home__times-list-item {
   background-color: transparent;
-  border: 1px solid black;
+  border: 1px solid lightgrey;
   border-radius: 5px;
   padding: 5px;
   width: 48%;
@@ -63,8 +75,70 @@ body {
   margin-bottom: 5px; }
   .home__times-list-item--unavailable {
     background-color: lightgrey; }
+  .home__times-list-item--selected {
+    color: white;
+    background-color: lightblue; }
   .home__times-list-item:hover {
     cursor: grab; }
 
 .react-calendar {
-  min-width: 100%; }
+  min-width: 100%;
+  margin-bottom: 15px; }
+
+.cart__time-block-container {
+  display: flex; }
+
+.cart__time-block-wrapper {
+  position: relative;
+  width: 49%;
+  margin: 1%; }
+  .cart__time-block-wrapper--start {
+    margin-left: 0; }
+  .cart__time-block-wrapper--end {
+    margin-right: 0; }
+
+.cart__time-option-select {
+  display: flex;
+  border: 1px solid black; }
+
+.cart__time-option-selected {
+  position: relative;
+  padding: 2px;
+  width: 95%; }
+
+.cart__time-option-selected-icon {
+  position: absolute;
+  top: 0px;
+  right: -5px; }
+
+.cart__time-option-drop-down {
+  background-color: white;
+  position: absolute;
+  width: 100%;
+  z-index: 4;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  margin-top: 2px;
+  height: 80px;
+  transition: height 200ms;
+  overflow-y: scroll; }
+  .cart__time-option-drop-down::-webkit-scrollbar {
+    width: 10px;
+    height: 95%; }
+    .cart__time-option-drop-down::-webkit-scrollbar-thumb {
+      height: 25px;
+      border-radius: 5px 5px 5px 5px;
+      color: pink;
+      background-color: #C1C8D4; }
+  .cart__time-option-drop-down--closed {
+    z-index: 4;
+    height: 0px;
+    overflow: hidden;
+    border: none;
+    transition: height 200ms; }
+
+.cart__time-option-list-item {
+  padding-left: 5px; }
+  .cart__time-option-list-item:hover {
+    background-color: #64A4D1;
+    color: white;
+    cursor: grab; }
