@@ -12,16 +12,22 @@ class Calendar extends Component {
         selectedDates: [],
         bookingDates: [],
         display: false,
-        selectRang: false,
+        selectRange: false,
         dayMode: false
+
     }
     onChange = date => {
+
+
         this.setState({
-            date: date,
-            selectedDates: [...this.state.selectedDates, this.state.date ]
+            selectedDates: [...this.state.selectedDates, date ]
         })
 
-        console.log(this.state.selectedDates)
+    }
+    multiDateToggle=()=>{
+        this.setState({
+            selectRange: !this.state.selectRange
+        })
     }
     displayClick = (e) => {
         e.preventDefault()
@@ -70,16 +76,18 @@ class Calendar extends Component {
     }
 
     render() {
+        console.log("SELECT DATES", this.state.selectedDates)
         return (
             <div className="home__calendar">
                 <div className="container">
                     Click a date below to start booking!
+                    <button onClick={this.multiDateToggle}>{this.state.selectRange ? "Single Date" : "Multiple Dates"}</button>
                     <div className={'calendarDisplay'}>
                         <CalendarDate
                             calendarType={"ISO 8601"}
                             onChange={this.onChange}
                             value={this.state.date}
-                            selectRange={this.state.selectRang}
+                            selectRange={this.state.selectRange}
                         />
                     </div>
                 </div>

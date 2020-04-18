@@ -2,7 +2,7 @@ import React from 'react';
 
 import StartTimeMenu from "./StartTimeMenu";
 import EndTimeMenu from "./EndTimeMenu";
-
+import CalendarDate from 'react-calendar'
 import {v4} from 'uuid'
 
 class Cart extends React.Component {
@@ -10,7 +10,7 @@ class Cart extends React.Component {
         startTime: "",
         endTime: "",
         startTimeSelected: false,
-        selectedDates: [],
+        selectedDates: this.props.selectedDates,
 
     }
 
@@ -30,7 +30,7 @@ class Cart extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps !== this.props) {
+        if (this.props.selectedDates !== this.state.selectedDates) {
             this.setState({
                 selectedDates: this.props.selectedDates
             })
@@ -67,26 +67,30 @@ class Cart extends React.Component {
     }
 
     render() {
-        console.log(this.state)
+        console.log("SELECTED DATES: CART", this.props.selectedDates)
         // console.log(this.state)
         return (
-                <div className={"cart"}>
-                    <div className="container">
-                        {this.state.selectedDates.map(date => {
-                            console.log(date)
-                            return (
-                                <div className={"cart__date"}>
-                                    <p onClick={() => this.handleClickRemove(date)}>{date.toLocaleString()}</p>
-                                    <div className={"cart__time-block-container"}>
-                                        <StartTimeMenu setTime={this.setTime}/>
-                                        <EndTimeMenu setTime={this.setTime}/>
-                                    </div>
-                                </div>
-                            )
-                        })}
-                    </div>
+            <div className={"cart"}>
+                <div className="container">
+                    <h1 className="cart__price">$175 per hour</h1>
 
-          </div>
+                    {this.state.selectedDates.map(date => {
+                        console.log(date)
+                        return (
+                            <div className={"cart__date"}>
+                                <p>{date.toLocaleString()} <span className={"cart__remove-date"}
+                                                                 onClick={() => this.handleClickRemove(date)}>Remove Date</span>
+                                </p>
+                                <div className={"cart__time-block-container"}>
+                                    <StartTimeMenu setTime={this.setTime}/>
+                                    <EndTimeMenu setTime={this.setTime}/>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
+
+            </div>
         )
     }
 }
