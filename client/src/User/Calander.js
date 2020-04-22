@@ -6,13 +6,13 @@ class Calander extends Component {
         super()
 
         this.state= {
-            date: new Date(),
+           // date: new Date(),
             display: false,
             selectRang: false,
             dayMode: false
         }
     }
-    onChange = date => this.setState({ date })
+    //onChange = date => this.setState({ date })
 
     displayClick = (e) => {
         e.preventDefault()
@@ -32,8 +32,8 @@ class Calander extends Component {
                 <button onClick={this.displayClick}>~Click this button I dare you!~</button>
                 <div className={this.state.display === false ? 'calenderDisplayNone' : 'calenderDisplay'} >
                     <CalanderDate 
-                        onChange={this.onChange}
-                        value={this.state.date}
+                        onChange={this.props.handleCalendarChange}
+                        value={this.props.date}
                         selectRange={this.state.selectRang}
                         />
                 <button onClick={this.startSelct}>Turn multiple day mode {this.state.dayMode === false ? 'on' : 'off'}</button>

@@ -4,15 +4,14 @@ import "../styles/navbar.css";
 
 function Navbar() {
   return (
-    <div className="navbar-styles">
-      <Link to="/" className="navbar-style">
+    <div className="navbar-style">
+      <Link to="/" className="logo-style">
         <p className="style-O">O</p>
         <p className="style-Bar">-Bar-</p>
         <p className="style-D">D</p>
       </Link>
       <p className="signup-login">
-        <Link to="/">Home</Link>
-        <Link to="/auth">Signup/Login</Link>
+        <Link to="/auth">Jessie's Login</Link>
       </p>
     </div>
   );
