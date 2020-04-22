@@ -1,7 +1,12 @@
+// bookingRouter.js
+// ==============================
+
+//imports
 const express = require("express")
 const bookingRouter = express.Router()
 const Booking = require("../models/booking.js")
 
+// get
 bookingRouter.get("/", (req, res, next) => {
     Booking.find((err, booking)=>{
         if(err){
@@ -13,6 +18,7 @@ bookingRouter.get("/", (req, res, next) => {
     })
 })
 
+// post
 bookingRouter.post("/", (req, res, next) =>{
     const newBooking = new Booking(req.body)
     newBooking.save((err, savedBooking) => {
@@ -25,6 +31,7 @@ bookingRouter.post("/", (req, res, next) =>{
     })
 })
 
+// put
 bookingRouter.put("/:_id", (req, res, next) => {
     Booking.findOneAndUpdate(
         {_id: req.params._id},
@@ -41,6 +48,7 @@ bookingRouter.put("/:_id", (req, res, next) => {
     )
 })
 
+// delete
 bookingRouter.delete("/:_id", (req, res, next) => {
     Booking.findOneAndRemove({_id: req.params._id}, (err, deletedBook) => {
         if(err){
@@ -52,4 +60,5 @@ bookingRouter.delete("/:_id", (req, res, next) => {
     })
 })
 
+// exports
 module.exports = bookingRouter

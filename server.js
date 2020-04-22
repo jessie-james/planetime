@@ -1,3 +1,7 @@
+// server.js
+// ==============================
+
+// imports
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
@@ -16,12 +20,14 @@ app.use("/api/client", require('./routes/clientRouter.js'))
 //routes
 app.use("/booking", require("./routes/bookingRouter.js"))
 app.use("/auth", require('./routes/authRouter.js'))
+app.use("/charge", require('./routes/paymentRouter.js'))
 app.use("/api", expressJwt({secret: process.env.SECRET}))
+
 
 //DB connection
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/o-d', 
 { 
-    useNewUrlParser: true,
+    useNewUrlParser: true, 
     useFindAndModify: false,
     useCreateIndex: true,
     useUnifiedTopology: true
@@ -38,7 +44,7 @@ app.get("*", (req, res) => {
 });
 
 //err handler
-app.use((err, res, next) => {
+app.use((err, req, res, next) => {
     console.log(err)
     if(err.name === "UnauthorizedErr"){
         res.status(err.status)
