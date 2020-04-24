@@ -28,21 +28,21 @@ body{
     height: 50vh;
 }
 .plane-pic-one{
-    background-image: url('./assets/plane.jpg');
+    background-image: url('images/plane.jpg');
     background-size: cover;
     background-position: center;
     height: 100%;
     width: 100%;
 }
 .plane-pic-two{
-    background-image: url('./assets/plane.jpg');
+    background-image: url('images/plane.jpg');
     background-size: cover;
     background-position: center;
     height: 100%;
     width: 100%;
 }
 .plane-pic-three{
-background-image: url('./assets/plane3.jpg');
+background-image: url('images/plane3.jpg');
 background-size: contain;
 background-position: center;
 height: 100%;

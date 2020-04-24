@@ -3,7 +3,7 @@ const app = express()
 const mongoose = require('mongoose')
 const morgan = require('morgan')
 const expressJwt = require('express-jwt')
-const PORT = process.env.PORT || 3623
+const PORT = process.env.PORT || 4000
 require("dotenv").config()
 const path = require("path")
 

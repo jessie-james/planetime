@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {storage} from '../User/firebase/Firebase.js'
+import {storage} from './firebase/Firebase.js'
 
 class Pilotupload extends Component {
     constructor() {
