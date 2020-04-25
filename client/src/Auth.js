@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import AuthForm from "./AuthForm";
 import { withUser } from "./context/UserProvider.js";
-import "./styles/auth.css";
 // import SignUpForm from "./SignUpForm";
 
 

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 
-import {storage} from '../User/firebase/Firebase.js'
-import '.././styles/pilotupload.css'
+import {storage} from '../../../components/user/Home/firebase/Firebase'
 
 
 

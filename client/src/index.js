@@ -7,16 +7,7 @@ import UserProvider from './context/UserProvider.js'
 // import { StripeProvider, Elements } from 'react-stripe-elements'
 
 ReactDOM.render(
-<<<<<<< HEAD
-    <BrowserRouter>
-        <ClientProvider>
-            <UserProvider>
-                <App/>
-            </UserProvider>
-        </ClientProvider>
-    </BrowserRouter>,
-    document.getElementById('root'))
-=======
+
 //    <StripeProvider 
     /* stripe={null}  */
         // apiKey={
@@ -35,4 +26,3 @@ ReactDOM.render(
 //         </Elements>
 //    </StripeProvider> 
    , document.getElementById('root'))
->>>>>>> 46549e3f9eeeb7b19727df09d7bb8fad2e2d1e6a

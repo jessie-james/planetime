@@ -51,11 +51,12 @@ class Calendar extends Component {
                 this.setState({
                     bookings: response.data
                 })
-            }).catch((err) => {
-            this.setState({
-                errors: err.response.data
             })
-        })
+        //     .catch((err) => {
+        //     this.setState({
+        //         errors: err.response.data
+        //     })
+        // })
     }
 
     removeSelectedDate=(selectedDate)=>{
