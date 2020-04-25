@@ -23,8 +23,9 @@
     "react-moment": "^0.9.7",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.3.0",
-    "styled-components": "^5.0.0",
-    "uuid": "^7.0.3"
+    "uuid": "^7.0.3",
+    "react-stripe-elements": "^6.1.0",
+    "styled-components": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -48,5 +49,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://localhost:4000"
+
+  "proxy": "http://localhost:3623"
 }

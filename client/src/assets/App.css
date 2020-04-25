@@ -1,7 +1,8 @@
 body{
     margin: 0;
 }
-.home{
+
+.home-grid{
     height: 80vh;
     background-image: url('https://wallpapercave.com/wp/wp3350141.jpg');
     display: grid;
@@ -9,10 +10,17 @@ body{
     background-size: cover;
     grid-template-columns: 1fr 1fr;
 }
+.home{
+    height: 80vh;
+    display: grid;
+    grid-template-columns: 1fr;
+}
 .home-signup{
     display: flex;
     flex-direction: column;
-
+}
+.resOverBox{
+    grid-column-start: 2
 }
 .home-signup-side{
     background-color: white;
@@ -20,6 +28,7 @@ body{
     height: 90%;
     margin: auto;
     overflow: auto;
+    display: inline;
 }
 .plane-gallery-grid{
     display: grid;

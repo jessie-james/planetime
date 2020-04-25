@@ -5,23 +5,9 @@ const bookingSchema = new Schema({
     startDate: {
         type: Date
     },
-    endDate:{
+    endDate: {
         type: Date
     }
-
-    // weekDay: {
-    //     type: String
-    // },
-    // month:{
-    //     type: String
-    // },
-    // day: {
-    //     type: String
-    // },
-    // year: {
-    //     type: String
-    // }
-
 })
 
 module.exports = mongoose.model("Booking", bookingSchema)
