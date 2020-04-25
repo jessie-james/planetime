@@ -18,6 +18,20 @@ bookingRouter.get("/", (req, res, next) => {
     })
 })
 
+//find if timeslot is available for a given day
+bookingRouter.get("/search", (req,res,next)=>{
+    console.log("query started")
+    Booking.findOne(({startDate: req.query.startDate, endDate: req.query.endDate}), (err, booking)=>{
+            if(booking === null){
+                res.send("available")
+            }else if(booking !== null){
+                res.send("unavailable")
+            }
+    })
+})
+
+
+
 // post
 bookingRouter.post("/", (req, res, next) =>{
     const newBooking = new Booking(req.body)
