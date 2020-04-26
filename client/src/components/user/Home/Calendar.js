@@ -73,7 +73,7 @@ class Calendar extends Component {
     }
 
     componentDidMount() {
-        this.getBookings()
+        // this.getBookings()
     }
 
     render() {
