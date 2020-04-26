@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 
 import PlaneInfo from './PlaneInfo'
+import Cart from './Cart'
 import Schedule from './Schedule'
+import planeImage from '../../../assets/images/Piper Arrow II 2.jpg'
 class Home extends Component {
     constructor(props){
         super()
@@ -27,9 +29,13 @@ class Home extends Component {
     render(props){
         return (
             <div className="home">
+                <div className="home__plane-image-wrapper">
+                    <img src={planeImage} alt="" className={"home__plane-image"}/>
+                </div>
                 <div className="home__main">
                     <PlaneInfo/>
-                    <Schedule/>
+                    <Cart/>
+                    {/*<Schedule/>*/}
                 </div>
                 {/*<div className="home__cart">*/}
                 {/*    <Cart />*/}

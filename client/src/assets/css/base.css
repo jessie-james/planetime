@@ -8,8 +8,7 @@ a {
   text-decoration: none; }
 
 body {
-  font-family: sans-serif;
-  background-color: pink; }
+  font-family: sans-serif; }
 
 .container {
   margin: 0 auto;
@@ -28,6 +27,12 @@ body {
 .header__nav-link {
   color: orange;
   margin-left: 10px; }
+
+.home__plane-image-wrapper {
+  width: 100%; }
+
+.home__plane-image {
+  width: 100%; }
 
 .home__main {
   margin-top: 30px;

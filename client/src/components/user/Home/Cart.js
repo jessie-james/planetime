@@ -5,7 +5,7 @@ import EndTimeMenu from "./EndTimeMenu";
 import DateSelect from './DateSelect'
 import CalendarDate from 'react-calendar'
 import {v4} from 'uuid'
-
+import axios from 'axios'
 class Cart extends React.Component {
     state = {
         date: new Date(),
@@ -58,6 +58,13 @@ class Cart extends React.Component {
 
         const bookingStart = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate(),startTime[0], startTime[1])
         const bookingEnd = new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate(), endTime[0], endTime[1])
+        const bookingData = {
+            startDate: bookingStart.toISOString(),
+            endDate: bookingEnd.toISOString()
+        }
+        axios.post(`http://localhost:3000/booking`, bookingData)
+
+
         console.log(bookingStart)
         console.log(bookingEnd)
         // console.log(bookingEnd)
@@ -74,15 +81,6 @@ class Cart extends React.Component {
 
 
     dates = this.state.selectedDates
-
-    // renderDates = this.dates.map(date => {
-    //     return (
-    //         <div>
-    //             <StartTimeMenu/>
-    //             <EndTimeMenu/>
-    //         </div>
-    //     )
-    // })
 
     handleClickRemove = (date) => {
         this.props.removeSelectedDate(date)
