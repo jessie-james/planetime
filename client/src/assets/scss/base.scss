@@ -15,6 +15,9 @@ body{
   margin: 0 auto;
   max-width: 90%;
 }
+.hidden{
+  display: none;
+}
 @import 'header';
 @import 'home';
 @import 'cart';

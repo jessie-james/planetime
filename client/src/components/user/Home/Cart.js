@@ -90,21 +90,39 @@ class Cart extends React.Component {
         console.log("startDate", this.state.startDate)
         console.log("startMonth", this.state.startDate.getFullYear(), this.state.startDate.getMonth(), this.state.startDate.getDate())
         return (
-            <div className={"cart"}>
+            <div className={`cart ${!this.props.mobileCartEnabled ? "cart--closed" : null}`}>
 
                 <div className="container">
                     <h1 className="cart__price">$175 per hour</h1>
-                    From:
+                    <label htmlFor="" className="cart__label">From:</label>
                     <div className="cart__date-time-container">
                         <DateSelect type={"start"} setDate={this.setDate}/>
                         <StartTimeMenu setTime={this.setTime}/>
                     </div>
-                    To:
+                    <label htmlFor="" className="cart__label">To:</label>
                     <div className="cart__date-time-container">
                         <DateSelect type={"end"} setDate={this.setDate}/>
                         <EndTimeMenu setTime={this.setTime}/>
                     </div>
+                    <p className="cart__important">
+                        <span>*IMPORTANT* </span>   Only a $10 deposit is due at checkout. Hourly rate is due upon returning the plane. You will only be charged for the time that the plane is actually in the air.
+                    </p>
+                    <div className="cart__amount-due">
+                        <p className="cart__amount-due-label">
+                            Amount due now
+                        </p>
+                        <p className="cart__amount-due-price">
+                            $10
+                        </p>
+                    </div>
+                    <div className="cart__estimated-total">
+                        <p className="cart__estimated-total-label">
+                            Estimated Total (due upon return)
+                        </p>
+                        <p className="cart__estimated-total-price">
 
+                        </p>
+                    </div>
                     {/*{this.state.selectedDates.map(date => {*/}
                     {/*    console.log(date)*/}
                     {/*    return (*/}
@@ -119,7 +137,7 @@ class Cart extends React.Component {
                     {/*        </div>*/}
                     {/*    )*/}
                     {/*})}*/}
-                    <button onClick={this.createBooking}>Book NOW</button>
+                    <button className={"cart__checkout"} onClick={this.createBooking}>Checkout</button>
                 </div>
 
             </div>

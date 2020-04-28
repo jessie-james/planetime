@@ -10,7 +10,8 @@ class Home extends Component {
      this.state = {
             firstName: "",
             lastName: "",
-            birthday: ""
+            birthday: "",
+            mobileCart: false
         }  
     }
 
@@ -25,7 +26,12 @@ class Home extends Component {
         console.log("we clicked it")
         console.log(this.state.firstName)
     }
-    
+    toggleMobileCart=()=>{
+        this.setState({
+            mobileCart: !this.state.mobileCart
+        })
+    }
+
     render(props){
         return (
             <div className="home">
@@ -33,8 +39,8 @@ class Home extends Component {
                     <img src={planeImage} alt="" className={"home__plane-image"}/>
                 </div>
                 <div className="home__main">
-                    <PlaneInfo/>
-                    <Cart/>
+                    <PlaneInfo toggleMobileCart={this.toggleMobileCart} mobileCartEnabled={this.state.mobileCart}/>
+                    <Cart mobileCartEnabled={this.state.mobileCart}/>
                     {/*<Schedule/>*/}
                 </div>
                 {/*<div className="home__cart">*/}
