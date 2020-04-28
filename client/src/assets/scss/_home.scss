@@ -1,6 +1,12 @@
 .home {
+  &__plane-image-wrapper{
+    width: 100%;
+  }
+  &__plane-image{
+    width: 100%;
+  }
   &__main {
-    margin-top: 30px;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
   }
@@ -14,8 +20,17 @@
   &__plane-info-header {
     margin-bottom: 20px;
     font-size: 30px;
+    display: flex;
   }
-
+  &__plane-info-header-title{
+      font-size: 20px;
+  }
+  &__plane-info-header-price{
+    color: red;
+    font-size: 16px;
+    margin-left: auto;
+    align-self: center;
+  }
   &__plane-info-copy {
     margin-bottom: 10px;
     line-height: 1.5;
@@ -33,6 +48,24 @@
   &__plane-info-spec-list-item {
     list-style-type: circle;
     margin-bottom: 5px;
+  }
+  &__plane-info-important{
+    span{
+      color: red;
+    }
+  }
+
+  &__book-now{
+    margin: 0 auto;
+    margin-top: 25px;
+   display: block;
+    border: none;
+    background-color: #64A4D1;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 5px;
   }
 
   &__schedule {
@@ -83,4 +116,5 @@
 .react-calendar {
   min-width: 100%;
   margin-bottom: 15px;
+  z-index: 5;
 }

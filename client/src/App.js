@@ -22,18 +22,19 @@ class App extends Component {
 
   componentDidMount() {
     //asyncronous check for Stripe from the window mount
-    if (window.Stripe) {
-      this.setState({ stripe: window.Stripe(
-        process.env.REACT_APP_PUBLISHABLE_TEST_APIKEY
-         || process.env.REACT_APP_PUBLISHABLE_LIVE_APIKEY) });
-    } else {
-      document.querySelector('#stripe-js').addEventListener('load', () => {
-        // Create Stripe instance once Stripe.js loads
-        this.setState({ stripe: window.Stripe(
-          process.env.REACT_APP_PUBLISHABLE_TEST_APIKEY
-           || process.env.REACT_APP_PUBLISHABLE_LIVE_APIKEY) });
-      });
-    }
+
+    // if (window.Stripe) {
+    //   this.setState({ stripe: window.Stripe(
+    //     process.env.REACT_APP_PUBLISHABLE_TEST_APIKEY
+    //      || process.env.REACT_APP_PUBLISHABLE_LIVE_APIKEY) });
+    // } else {
+    //   document.querySelector('#stripe-js').addEventListener('load', () => {
+    //     // Create Stripe instance once Stripe.js loads
+    //     this.setState({ stripe: window.Stripe(
+    //       process.env.REACT_APP_PUBLISHABLE_TEST_APIKEY
+    //        || process.env.REACT_APP_PUBLISHABLE_LIVE_APIKEY) });
+    //   });
+    // }
   }
 
   render() {

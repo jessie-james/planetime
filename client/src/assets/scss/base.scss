@@ -9,10 +9,14 @@ a{
 }
 body{
   font-family: sans-serif;
+  //background-color: pink;
 }
 .container{
   margin: 0 auto;
   max-width: 90%;
+}
+.hidden{
+  display: none;
 }
 @import 'header';
 @import 'home';

@@ -1,14 +1,17 @@
 import React, {Component} from 'react'
 
 import PlaneInfo from './PlaneInfo'
+import Cart from './Cart'
 import Schedule from './Schedule'
+import planeImage from '../../../assets/images/Piper Arrow II 2.jpg'
 class Home extends Component {
     constructor(props){
         super()
      this.state = {
             firstName: "",
             lastName: "",
-            birthday: ""
+            birthday: "",
+            mobileCart: false
         }  
     }
 
@@ -23,13 +26,22 @@ class Home extends Component {
         console.log("we clicked it")
         console.log(this.state.firstName)
     }
-    
+    toggleMobileCart=()=>{
+        this.setState({
+            mobileCart: !this.state.mobileCart
+        })
+    }
+
     render(props){
         return (
             <div className="home">
+                <div className="home__plane-image-wrapper">
+                    <img src={planeImage} alt="" className={"home__plane-image"}/>
+                </div>
                 <div className="home__main">
-                    <PlaneInfo/>
-                    <Schedule/>
+                    <PlaneInfo toggleMobileCart={this.toggleMobileCart} mobileCartEnabled={this.state.mobileCart}/>
+                    <Cart mobileCartEnabled={this.state.mobileCart}/>
+                    {/*<Schedule/>*/}
                 </div>
                 {/*<div className="home__cart">*/}
                 {/*    <Cart />*/}

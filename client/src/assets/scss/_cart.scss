@@ -1,5 +1,9 @@
 
 .cart {
+  //position: absolute;
+  //bottom: 0;
+  //height: 550px;
+  //width: 100%;
   //background-color: lightcoral;
   //height: 400px;
   //width: 90%;
@@ -7,82 +11,60 @@
   //top: 0px;
   //left: 5%;
   //border-radius: 10px;
+  &--closed{
+    display: none;
+
+  }
   &__date{
     //background-color: pink;
   }
-
-  &__time-block-container {
+  &__date-time-container{
+    //background-color: pink;
     display: flex;
-    //background-color: lightblue;
   }
+  //&__date-select{
+  //  width: 49%;
+  //  border: 1px solid black;
+  //}
+  &__label{
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 5px;
+  }
+  @import 'dateSelect';
+  @import 'startEndTime';
+  &__checkout{
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    width: 90%;
+    border-radius: 5px;
+    background-color: #64A4D1;
+    color: white;
+    font-size: 18px;
 
-  &__time-block-wrapper {
-    position: relative;
-    width: 49%;
-    margin: 1%;
-
-    &--start {
-      margin-left: 0;
-    }
-
-    &--end {
-      margin-right: 0;
+  }
+  &__important{
+    margin-top: 30px;
+    span{
+      color: red;
     }
   }
-
-  &__time-option-select {
+  &__amount-due{
+    margin-top: 30px;
+    margin-bottom: 15px;
     display: flex;
-    //justify-content: space-around;
-    border: 1px solid black;
-
   }
-
-  &__time-option-selected {
-    position: relative;
-    padding: 2px;
-    width: 95%;
+  &__amount-due-price{
+    margin-left: auto;
   }
-
-  &__time-option-selected-icon {
-    position: absolute;
-    top: 0px;
-    right: -5px;
+  &__estimated-total{
+    display: flex;
   }
-
-  &__time-option-drop-down {
-    background-color: white;
-    position: absolute;
-    width: 100%;
-    z-index: 4;
-    border: 1px solid rgba(0,0,0,.3);
-    margin-top: 2px;
-    height: 80px;
-    transition: height 200ms;
-    overflow-y: scroll;
-    &::-webkit-scrollbar{
-      width: 10px;
-      height: 95%;
-      &-thumb{
-        height: 25px;
-        border-radius: 5px 5px 5px 5px;
-        color: pink;
-        background-color: #C1C8D4;
-      }
-    }
-    &--closed{
-      z-index: 4;
-      height: 0px;
-      overflow: hidden;
-      border: none;
-      transition: height 200ms;
-    }
-  }
-  &__time-option-list-item{
-    padding-left: 5px;
-    &:hover{
-      background-color: #64A4D1;
-      color: white;
-      cursor: grab;
-    }
+  &__estimated-total-price{
+    margin-left: auto;
   }
 }
