@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import AuthForm from "./AuthForm";
 import { withUser } from "./context/UserProvider.js";
 import "./styles/auth.css";
-// import SignUpForm from "./SignUpForm";
+import SignUpForm from "./SignUpForm";
 
 
 class Auth extends Component {
@@ -10,26 +10,26 @@ class Auth extends Component {
     super();
     this.state = {
       username: "",
-      password: ""
-      // password2: "",
-      // signAuth: "Click here to create an account",
-      // formToggle: false,
-      // signAuthToggle: false
+      password: "",
+      password2: "",
+      signAuth: "Click here to create an account",
+      formToggle: false,
+      signAuthToggle: false
     };
   }
 
-  // toggler = () => {
-  //   this.setState(prevState => ({ formToggle: !prevState.formToggle }));
-  //   this.signAuth();
-  // };
+  toggler = () => {
+    this.setState(prevState => ({ formToggle: !prevState.formToggle }));
+    this.signAuth();
+  };
 
-  // signAuth = () => {
-  //   if (!this.state.formToggle) {
-  //     this.setState({ signAuth: "Already a member? Click here" });
-  //   } else {
-  //     this.setState({ signAuth: "Click here to create an account" });
-  //   }
-  // };
+  signAuth = () => {
+    if (!this.state.formToggle) {
+      this.setState({ signAuth: "Already a member? Click here" });
+    } else {
+      this.setState({ signAuth: "Click here to create an account" });
+    }
+  };
 
   
 
@@ -40,23 +40,15 @@ class Auth extends Component {
     });
   };
 
-  // handleSignupSubmit = e => {
-  //   e.preventDefault();
-  //   const credentials = {
-  //     username: this.state.username,
-  //     password: this.state.password,
-  //     password2: this.state.password2
-  //   };
-  //   if (this.state.password === this.state.password2) {
-  //     this.props.signup(credentials);
-  //     console.log(credentials);
-  //     // this.clearInputs();
-  //     this.props.history.push("/ClientInfo")
-  //   } else {
-  //     window.alert("Passwords do not match");
-  //     return;
-  //   } 
-  // };
+  handleSignupSubmit = e => {
+    e.preventDefault()
+    const credentials = {
+        username: this.state.username,
+        password: this.state.password
+    }
+    this.props.signup(credentials)
+    this.clearInputs()
+}
 
   handleLoginSubmit = e => {
     e.preventDefault();
@@ -74,44 +66,39 @@ class Auth extends Component {
     this.setState({
       username: "",
       password: "",
-      // password2: ""
     });
   };
 
-  render() {
-    return (
-      <div className="signup-auth-form">
-        {/* <span className="toggle-signup-login" onClick={this.toggler}>
-          {this.state.signAuth}
-        </span> */}
-
-        <div className="form-container">
-          {/* {this.state.formToggle ? (
+  render(){
+    return(
+        <div>
+            
+            { this.state.formToggle ?
             <>
-              <SignUpForm
+                <AuthForm
                 username={this.state.username}
                 password={this.state.password}
-                password2={this.state.password2}
                 handleChange={this.handleChange}
-                handleSubmit={this.handleSignupSubmit}
+                handleSubmit={this.handleSignupSubmit} 
                 btnText="Signup"
-              />
+                />
+                <span onClick={this.toggler}>Already a member?</span>
             </>
-          ) : ( */}
+                :
             <>
-              <AuthForm
+                <AuthForm
                 username={this.state.username}
                 password={this.state.password}
                 handleChange={this.handleChange}
-                handleSubmit={this.handleLoginSubmit}
+                handleSubmit={this.handleLoginSubmit} 
                 btnText="Login"
-              />
+                />
+                <span onClick={this.toggler}>Not a member?</span>
             </>
-          {/* )} */}
+            }
         </div>
-      </div>
-    );
-  }
+    )
+}
 }
 
-export default withUser(Auth);
+export default withUser(Auth)
