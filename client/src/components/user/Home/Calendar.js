@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import CalendarDate from 'react-calendar'
 import axios from 'axios'
-import Cart from './Cart'
+import Cart from './Cart/Cart'
 import Times from './Times'
 
 class Calendar extends Component {

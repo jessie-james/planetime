@@ -10,29 +10,49 @@ a {
 body {
   font-family: sans-serif; }
 
-.container {
+.wrapper {
   margin: 0 auto;
   max-width: 90%; }
 
 .hidden {
   display: none; }
 
-.header .container {
-  display: flex; }
+.header {
+  padding-top: 20px; }
+  .header .wrapper {
+    display: flex;
+    width: 100%; }
+  .header__logo {
+    width: 10%;
+    background-color: #8498C0;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold; }
+  .header__nav {
+    display: none; }
+  .header__nav-link {
+    color: orange;
+    margin-left: 10px; }
 
-.header__logo {
-  color: red;
-  width: 10%; }
+@media only screen and (min-width: 768px) {
+  .header {
+    margin-bottom: 30px; }
+    .header .wrapper {
+      max-width: 80%; }
+    .header__logo {
+      color: red;
+      width: 10%; }
+    .header__nav {
+      display: initial;
+      margin-left: auto; }
+    .header__nav-link {
+      color: orange;
+      margin-left: 10px; } }
 
-.header__nav {
-  display: none; }
-
-.header__nav-link {
-  color: orange;
-  margin-left: 10px; }
-
-.home__plane-image-wrapper {
-  width: 100%; }
+.home .wrapper {
+  display: flex;
+  flex-direction: column; }
 
 .home__plane-image {
   width: 100%; }
@@ -41,10 +61,6 @@ body {
   margin-top: 10px;
   display: flex;
   flex-direction: column; }
-
-.home__plane-info {
-  padding-left: 5%;
-  padding-right: 5%; }
 
 .home__plane-info-header {
   margin-bottom: 20px;
@@ -66,8 +82,6 @@ body {
 
 .home__plane-info-spec-list {
   text-align: left;
-  padding-left: 5%;
-  padding-right: 5%;
   margin-bottom: 20px;
   font-weight: lighter;
   font-size: 14px; }
@@ -94,31 +108,54 @@ body {
 .home__schedule {
   width: 100%; }
 
-.home__times-list {
-  display: flex;
-  flex-wrap: wrap; }
-
-.home__times-list-item {
-  background-color: transparent;
-  border: 1px solid lightgrey;
-  border-radius: 5px;
-  padding: 5px;
-  width: 48%;
-  text-align: center;
-  margin-left: 5px;
-  margin-bottom: 5px; }
-  .home__times-list-item--unavailable {
-    background-color: lightgrey; }
-  .home__times-list-item--selected {
-    color: white;
-    background-color: lightblue; }
-  .home__times-list-item:hover {
-    cursor: grab; }
-
 .react-calendar {
   min-width: 100%;
   margin-bottom: 15px;
   z-index: 5; }
+
+@media only screen and (min-width: 768px) {
+  .home {
+    display: flex; }
+    .home .wrapper {
+      flex-direction: row; }
+    .home__plane-image {
+      display: block;
+      width: 100%;
+      margin: 0 auto; }
+    .home__main {
+      width: 50%;
+      margin-top: 10px;
+      margin-right: 8px;
+      display: flex;
+      flex-direction: column; }
+    .home__plane-info-header {
+      margin-bottom: 20px;
+      font-size: 30px;
+      display: flex; }
+    .home__plane-info-header-title {
+      font-size: 20px; }
+    .home__plane-info-header-price {
+      color: red;
+      font-size: 16px;
+      margin-left: auto;
+      align-self: center; }
+    .home__plane-info-copy {
+      margin-bottom: 10px;
+      line-height: 1.5; }
+    .home__plane-info-spec-list {
+      text-align: left;
+      margin-bottom: 20px;
+      font-weight: lighter;
+      font-size: 14px; }
+    .home__plane-info-spec-list-item {
+      list-style-type: circle;
+      margin-bottom: 5px; }
+    .home__plane-info-important span {
+      color: red; }
+    .home__book-now {
+      display: none; }
+    .home__schedule {
+      width: 100%; } }
 
 .cart--closed {
   display: none; }
@@ -243,11 +280,10 @@ body {
     cursor: grab; }
 
 .cart__checkout {
-  position: absolute;
-  bottom: 0;
   overflow: hidden;
   display: block;
   margin: 0 auto;
+  margin-top: 30px;
   padding: 10px;
   width: 90%;
   border-radius: 5px;
@@ -273,3 +309,152 @@ body {
 
 .cart__estimated-total-price {
   margin-left: auto; }
+
+@media only screen and (min-width: 768px) {
+  .cart {
+    margin-left: 8px;
+    width: 50%; }
+    .cart wrapper {
+      max-width: 100%; }
+    .cart--closed {
+      display: none; }
+    .cart__date-time-container {
+      display: flex; }
+    .cart__label {
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 5px; }
+    .cart__date-block-container {
+      display: flex; }
+    .cart__date-wrapper {
+      position: relative;
+      width: 70%;
+      margin-right: 5px; }
+      .cart__date-wrapper--start {
+        margin-left: 0; }
+      .cart__date-wrapper--end {
+        margin-right: 0; }
+    .cart__date-select {
+      background-color: white;
+      padding-left: 5px;
+      display: flex;
+      border: 1px solid rgba(0, 0, 0, 0.3); }
+    .cart__date-selected {
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 2px;
+      width: 95%;
+      height: 35px; }
+    .cart__date-selected-icon {
+      position: absolute;
+      top: 0px;
+      right: -5px; }
+    .cart__calendar-drop-down {
+      height: 100px;
+      position: absolute;
+      transition: height 200ms;
+      z-index: 5; }
+      .cart__calendar-drop-down--closed {
+        z-index: 4;
+        height: 0;
+        overflow: hidden;
+        border: none;
+        transition: height 200ms; }
+    .cart .calendar {
+      opacity: 1;
+      z-index: 9999; }
+    .cart__time-block-container {
+      display: flex;
+      background-color: white; }
+    .cart__time-block-wrapper {
+      position: relative;
+      width: 49%;
+      background-color: white; }
+      .cart__time-block-wrapper--start {
+        margin-left: 0; }
+      .cart__time-block-wrapper--end {
+        margin-right: 0; }
+    .cart__time-option-select {
+      background-color: white;
+      padding-left: 5px;
+      display: flex;
+      border: 1px solid rgba(0, 0, 0, 0.3); }
+    .cart__time-option-selected {
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 2px;
+      width: 95%;
+      height: 35px; }
+    .cart__time-option-selected-icon {
+      position: absolute;
+      top: 0px;
+      right: -5px; }
+    .cart__time-option-drop-down {
+      background-color: white;
+      position: absolute;
+      width: 100%;
+      z-index: 4;
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      margin-top: 2px;
+      height: 80px;
+      transition: height 200ms;
+      overflow-y: scroll; }
+      .cart__time-option-drop-down::-webkit-scrollbar {
+        width: 10px;
+        height: 95%; }
+        .cart__time-option-drop-down::-webkit-scrollbar-thumb {
+          height: 25px;
+          border-radius: 5px 5px 5px 5px;
+          color: pink;
+          background-color: #C1C8D4; }
+      .cart__time-option-drop-down--closed {
+        z-index: 4;
+        height: 0px;
+        overflow: hidden;
+        border: none;
+        transition: height 200ms; }
+    .cart__time-option-list-item {
+      padding-left: 5px; }
+      .cart__time-option-list-item:hover {
+        background-color: #64A4D1;
+        color: white;
+        cursor: grab; }
+    .cart__checkout {
+      overflow: hidden;
+      display: block;
+      margin: 0 auto;
+      margin-top: 30px;
+      padding: 10px;
+      width: 90%;
+      border-radius: 5px;
+      background-color: #64A4D1;
+      color: white;
+      font-size: 18px; }
+    .cart__important {
+      margin-top: 30px; }
+      .cart__important span {
+        color: red; }
+    .cart__amount-due {
+      margin-top: 30px;
+      margin-bottom: 15px;
+      display: flex; }
+    .cart__amount-due-price {
+      margin-left: auto; }
+    .cart__estimated-total {
+      display: flex; }
+    .cart__estimated-total-price {
+      margin-left: auto; } }
+
+@media only screen and (min-width: 1024px) {
+  .cart .wrapper {
+    max-width: 100%; } }
+
+@media only screen and (min-width: 1024px) {
+  .wrapper {
+    max-width: 80%; } }
+
+@media only screen and (min-width: 1440px) {
+  .wrapper {
+    max-width: 50%; } }

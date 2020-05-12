@@ -6,7 +6,7 @@ import {Link} from "react-router-dom";
 function Header() {
     return (
         <header className="header">
-            <div className="container">
+            <div className="wrapper">
                 <div className="header__logo">
                     O-D
                 </div>
