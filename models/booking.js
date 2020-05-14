@@ -1,45 +1,35 @@
+// booking.js
+// ==============================
+
 const mongoose = require("mongoose") 
 const Schema = mongoose.Schema
 
-const bookingSchems = new Schema({
-    startWeekDay: {
-        type: String,
-        require: true
+const bookingSchema = new Schema({
+    startDate: {
+        type: Date, 
+        required: true
     },
-    startMonth:{
-        type: String,
-        require: true
+    endDate: {
+        type: Date,
+        required: true
     },
-    startDay: {
-        type: String,
-        require: true
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true
     },
-    startYear: {
+    email: {
         type: String,
-        require: true
+        required: true
     },
-    endWeekDay: {
+    bookingAddress: {
         type: String,
-        default: "NA"
+        required: true,
     },
-    endMonh: {
-        type: String,
-        default: "NA"
-    },
-    endDay: {
-        type: String,
-        default: "NA"
-    },
-    endYear: {
-        type: String,
-        default: "NA"
+    refunded: {
+        type: Boolean,
+        required: true
     }
-    // startTime:{
-
-    // },
-    // endTime:{
-
-    // }
 })
 
-module.exports = mongoose.model("Booking", bookingSchems)
+module.exports = mongoose.model("Booking", bookingSchema)

@@ -1,12 +1,19 @@
+// BookingProvider.js
+// ==============================
+
+// imports
 import React, { Component } from "react";
 import axios from 'axios'
 
-const ClientContext = React.createContext();
+// instantiate Context
+const BookingContext = React.createContext();
 
-class ClientProvider extends Component {
+// component
+class BookingProvider extends Component {
   constructor() {
     super();
     this.state = {
+      // Dates and times nad things
       firstName: "",
       lastName: "",
       birthDay: "",
@@ -21,19 +28,21 @@ class ClientProvider extends Component {
     });
   };
 
-  getClients = () => {
-    axios
-      .get("/client")
-      .then(res =>{
-        this.setState({
-          firstName: res.data,
-          lastName: res.data,
-          birthDay: res.data,
-          pilotLicenseUrl: res.data
-        });
-      })
-      .catch(err => console.log(err));
-  };
+  // do we need this
+  // getClients = () => {
+  //   axios
+  //     .get("/client")
+  //     .then(res =>{
+  //       this.setState({
+  //         dates and times and things
+  //         firstName: res.data,
+  //         lastName: res.data,
+  //         birthDay: res.data,
+  //         pilotLicenseUrl: res.data
+  //       });
+  //     })
+  //     .catch(err => console.log(err));
+  // };
 
   render() {
     return (
@@ -54,11 +63,12 @@ class ClientProvider extends Component {
   }
 }
 
-export default ClientProvider;
+// exports
+export default BookingProvider;
 
-//functional programming paradigm
+  //functional programming paradigm/export
 export const withClients = C => props => (
-  <ClientContext.Consumer>
+  <BookingContext.Consumer>
     {value => <C {...value} {...props} />}
-  </ClientContext.Consumer>
+  </BookingContext.Consumer>
 );

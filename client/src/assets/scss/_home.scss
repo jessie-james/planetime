@@ -1,0 +1,120 @@
+.home {
+  &__plane-image-wrapper{
+    width: 100%;
+  }
+  &__plane-image{
+    width: 100%;
+  }
+  &__main {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__plane-info {
+    padding-left: 5%;
+    padding-right: 5%;
+    //text-align: center;
+  }
+
+  &__plane-info-header {
+    margin-bottom: 20px;
+    font-size: 30px;
+    display: flex;
+  }
+  &__plane-info-header-title{
+      font-size: 20px;
+  }
+  &__plane-info-header-price{
+    color: red;
+    font-size: 16px;
+    margin-left: auto;
+    align-self: center;
+  }
+  &__plane-info-copy {
+    margin-bottom: 10px;
+    line-height: 1.5;
+  }
+
+  &__plane-info-spec-list {
+    text-align: left;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-bottom: 20px;
+    font-weight: lighter;
+    font-size: 14px;
+  }
+
+  &__plane-info-spec-list-item {
+    list-style-type: circle;
+    margin-bottom: 5px;
+  }
+  &__plane-info-important{
+    span{
+      color: red;
+    }
+  }
+
+  &__book-now{
+    margin: 0 auto;
+    margin-top: 25px;
+   display: block;
+    border: none;
+    background-color: #64A4D1;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    font-size: 18px;
+    border-radius: 5px;
+  }
+
+  &__schedule {
+    //background-color: pink;
+    width: 100%;
+  }
+
+  &__times {
+  }
+
+  &__times-list {
+    display: flex;
+    flex-wrap: wrap;
+
+  }
+
+  &__times-list-item {
+    background-color: transparent;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    padding: 5px;
+    width: 48%;
+    text-align: center;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    &--unavailable{
+      background-color: lightgrey;
+    }
+    &--selected{
+      color: white;
+      background-color: lightblue;
+    }
+    &:hover{
+      cursor: grab;
+    }
+  }
+  &__cart {
+    &__cart-wrapper {
+    }
+
+    &__cart-header {
+    }
+  }
+}
+
+//React Calendar Overrides
+//(Original css file located in npm_modules/react-calendar/dist/Calendar.css)
+.react-calendar {
+  min-width: 100%;
+  margin-bottom: 15px;
+  z-index: 5;
+}

@@ -1,10 +1,13 @@
+// Auth.js
+
+// imports
 import React, { Component } from "react";
 import AuthForm from "./AuthForm";
 import { withUser } from "./context/UserProvider.js";
-import "./styles/auth.css";
+// import "./styles/auth.css";
 import SignUpForm from "./SignUpForm";
 
-
+// component  
 class Auth extends Component {
   constructor() {
     super();
@@ -101,4 +104,5 @@ class Auth extends Component {
 }
 }
 
+// exports
 export default withUser(Auth)
