@@ -18,7 +18,6 @@ class DateSelect extends React.Component {
             date: date
         })
         this.toggleMenu()
-
         this.props.setDate(type, date)
     }
     toggleMenu = () => {

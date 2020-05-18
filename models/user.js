@@ -53,9 +53,9 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    bookings: [
-        bookingIDSchema
-    ]
+    // bookings:  [
+    //     bookingIDSchema
+    // ]
 })
 
 //encrypt user's password on signup
