@@ -1,8 +1,13 @@
+// _home.scss
+
+@import 'queryMixin';
 .home {
-  &__plane-image-wrapper{
-    width: 100%;
+  .wrapper{
+    display: flex;
+    flex-direction: column;
   }
   &__plane-image{
+
     width: 100%;
   }
   &__main {
@@ -12,9 +17,7 @@
   }
 
   &__plane-info {
-    padding-left: 5%;
-    padding-right: 5%;
-    //text-align: center;
+
   }
 
   &__plane-info-header {
@@ -38,8 +41,7 @@
 
   &__plane-info-spec-list {
     text-align: left;
-    padding-left: 5%;
-    padding-right: 5%;
+
     margin-bottom: 20px;
     font-weight: lighter;
     font-size: 14px;
@@ -69,39 +71,13 @@
   }
 
   &__schedule {
-    //background-color: pink;
     width: 100%;
   }
 
   &__times {
   }
 
-  &__times-list {
-    display: flex;
-    flex-wrap: wrap;
 
-  }
-
-  &__times-list-item {
-    background-color: transparent;
-    border: 1px solid lightgrey;
-    border-radius: 5px;
-    padding: 5px;
-    width: 48%;
-    text-align: center;
-    margin-left: 5px;
-    margin-bottom: 5px;
-    &--unavailable{
-      background-color: lightgrey;
-    }
-    &--selected{
-      color: white;
-      background-color: lightblue;
-    }
-    &:hover{
-      cursor: grab;
-    }
-  }
   &__cart {
     &__cart-wrapper {
     }
@@ -117,4 +93,82 @@
   min-width: 100%;
   margin-bottom: 15px;
   z-index: 5;
+}
+
+@include responsive($tablet-landscape){
+  .home {
+    display: flex;
+    .wrapper{
+      flex-direction: row;
+    }
+    &__plane-image{
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+    }
+    &__main {
+      width: 50%;
+      margin-top: 10px;
+      margin-right: 8px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__plane-info {
+
+    }
+
+    &__plane-info-header {
+      margin-bottom: 20px;
+      font-size: 30px;
+      display: flex;
+    }
+    &__plane-info-header-title{
+      font-size: 20px;
+    }
+    &__plane-info-header-price{
+      color: red;
+      font-size: 16px;
+      margin-left: auto;
+      align-self: center;
+    }
+    &__plane-info-copy {
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    &__plane-info-spec-list {
+      text-align: left;
+      margin-bottom: 20px;
+      font-weight: lighter;
+      font-size: 14px;
+    }
+
+    &__plane-info-spec-list-item {
+      list-style-type: circle;
+      margin-bottom: 5px;
+    }
+    &__plane-info-important{
+      span{
+        color: red;
+      }
+    }
+
+    &__book-now{
+      display: none;
+    }
+
+    &__schedule {
+      width: 100%;
+    }
+
+
+    &__cart {
+      &__cart-wrapper {
+      }
+
+      &__cart-header {
+      }
+    }
+  }
 }

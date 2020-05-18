@@ -5,10 +5,11 @@
 import React, { Component } from 'react'
 
 import PlaneInfo from './PlaneInfo'
-import Cart from './Cart'
-import Schedule from './Schedule'
-import planeImage from '../../../assets/images/Piper Arrow II 2.jpg'
+import Cart from './Cart/Cart'
+import Auth from '../../../Auth'
+import planeImage from '../../../assets/images/plane.jpg'
 
+// component
 class Home extends Component {
     constructor(props) {
         super()
@@ -39,18 +40,25 @@ class Home extends Component {
 
     render(props) {
         return (
-            <div className={"home"} >
+            <>
+                <Auth/>
+
+                <div className={"home"}>
                 <div className={"wrapper"}>
                     <div className="home__main">
-                        <img src={planeImage} alt="" className={"home__plane-image"} />
-                        <PlaneInfo toggleMobileCart={this.toggleMobileCart} mobileCartEnabled={this.state.mobileCart} />
+                        <img src={planeImage} alt="" className={"home__plane-image"}/>
+                        <PlaneInfo toggleMobileCart={this.toggleMobileCart} mobileCartEnabled={this.state.mobileCart}/>
                     </div>
-                    <Cart mobileCartEnabled={this.state.mobileCart} />
+                    <Cart mobileCartEnabled={this.state.mobileCart}/>
                 </div>
             </div>
-        )
+            </>
+            )
 
     }
 }
 
+// exports
 export default Home
+
+

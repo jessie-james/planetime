@@ -42,6 +42,8 @@ class App extends Component {
 
   render() {
     const { token } = this.props;
+    console.log(token)
+    console.log(this.props)
     return (
       <StripeProvider stripe={this.state.stripe} >
         <Elements>
@@ -79,5 +81,5 @@ class App extends Component {
   }
 }
 
-// exports
-export default App;
+// export
+export default withUser(App);

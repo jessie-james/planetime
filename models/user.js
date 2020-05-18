@@ -1,7 +1,12 @@
+// user.js
+// ==============================
+
+// imports/instantiate Schemsa
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const bcrypt = require('bcrypt')
 
+// Schema
 const bookingIDSchema = new Schema({
     id: {
         type: mongoose.Schema.Types.ObjectId,
@@ -23,6 +28,30 @@ const userSchema = new Schema({
     isAdmin: {
         type: Boolean,
         default: false
+    },
+    firstName: {
+        type: String,
+        required: true,
+    },
+    lastName: {
+        type: String,
+        required: true,
+    },
+    streetAddress: {
+        type: String,
+        required: true,
+    },
+    city: {
+        type: String,
+        required: true,
+    },
+    state: {
+        type: String,
+        required: true
+    },
+    zip: {
+        type: String,
+        required: true
     },
     bookings: [
         bookingIDSchema
@@ -48,11 +77,12 @@ bcrypt.compare(passwordAttempt, this.password, (err, isMatch) => {
 })
 }
 
-// remore the password before sending to front end
+// remove the password before sending to front end
 userSchema.methods.withoutPassword = function(){
 const user = this.toObject()
 delete user.password
 return user
 }
 
+// exports
 module.exports = mongoose.model("User", userSchema)

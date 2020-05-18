@@ -1,107 +1,99 @@
 // Auth.js
+// ==============================
 
-// imports
-import React, { Component } from "react";
+// imoprts
+import React, {Component} from "react";
 import AuthForm from "./AuthForm";
-import { withUser } from "./context/UserProvider.js";
-// import "./styles/auth.css";
-import SignUpForm from "./SignUpForm";
+import {withUser} from "./context/UserProvider.js";
+
+// import SignUpForm from "./SignUpForm";
 
 // component  
 class Auth extends Component {
-  constructor() {
-    super();
-    this.state = {
-      username: "",
-      password: "",
-      password2: "",
-      signAuth: "Click here to create an account",
-      formToggle: false,
-      signAuthToggle: false
-    };
-  }
-
-  toggler = () => {
-    this.setState(prevState => ({ formToggle: !prevState.formToggle }));
-    this.signAuth();
-  };
-
-  signAuth = () => {
-    if (!this.state.formToggle) {
-      this.setState({ signAuth: "Already a member? Click here" });
-    } else {
-      this.setState({ signAuth: "Click here to create an account" });
+    constructor() {
+        super();
+        this.state = {
+            username: "",
+            password: "",
+            password2: "",
+            firstName: "",
+            lastName: "",
+            streetAddress: "",
+            city: "",
+            state: "",
+            zip: "",
+            login: true,
+        };
     }
-  };
 
-  
 
-  handleChange = e => {
-    const { name, value } = e.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
-  handleSignupSubmit = e => {
-    e.preventDefault()
-    const credentials = {
-        username: this.state.username,
-        password: this.state.password
-    }
-    this.props.signup(credentials)
-    this.clearInputs()
-}
-
-  handleLoginSubmit = e => {
-    e.preventDefault();
-    const credentials = {
-      username: this.state.username,
-      password: this.state.password
+    handleChange = e => {
+        const {name, value} = e.target;
+        this.setState({
+            [name]: value
+        });
     };
-    this.props.login(credentials);
-    this.clearInputs();
-    console.log("handleLoginSubmit is firing"); 
-    this.props.history.push("./User/ClientInfo");
-  };
 
-  clearInputs = () => {
-    this.setState({
-      username: "",
-      password: "",
-    });
-  };
+    handleSubmit = e => {
+        e.preventDefault();
+        let credentials;
+        switch (this.state.login) {
+            case true:
+                credentials = {
+                    username: this.state.username,
+                    password: this.state.password
+                };
+                console.log(credentials)
+                this.props.login(credentials);
+                this.clearInputs();
+                console.log("handleLoginSubmit is firing");
+                // this.props.history.push("./User/ClientInfo");
+                break;
+            case false:
+                credentials = {
+                    username: this.state.username,
+                    password: this.state.password,
+                    password2: this.state.password2,
+                    firstName: this.state.firstName,
+                    lastName: this.state.lastName,
+                    streetAddress: this.state.streetAddress,
+                    city: this.state.city,
+                    state: this.state.state,
+                    zip: this.state.zip,
+                }
+                console.log(credentials)
+                this.props.signup(credentials)
+                console.log("submit is firing")
+              // this.props.history.push("/Home")
+                break;
+        }
 
-  render(){
-    return(
-        <div>
-            
-            { this.state.formToggle ?
-            <>
-                <AuthForm
-                username={this.state.username}
-                password={this.state.password}
-                handleChange={this.handleChange}
-                handleSubmit={this.handleSignupSubmit} 
-                btnText="Signup"
-                />
-                <span onClick={this.toggler}>Already a member?</span>
-            </>
-                :
-            <>
-                <AuthForm
-                username={this.state.username}
-                password={this.state.password}
-                handleChange={this.handleChange}
-                handleSubmit={this.handleLoginSubmit} 
-                btnText="Login"
-                />
-                <span onClick={this.toggler}>Not a member?</span>
-            </>
-            }
-        </div>
-    )
-}
+    };
+
+    clearInputs = () => {
+        this.setState({
+            username: "",
+            password: "",
+            // password2: ""
+        });
+    };
+
+    render() {
+        console.log(this.props)
+        return (
+            <div className="signup-auth-form">
+                <div className="form-container">
+                        <AuthForm
+                            {...this.state}
+                            handleChange={this.handleChange}
+                            handleSubmit={this.handleSubmit}
+                            btnText={this.state.login ? "Login" : "Signup"}
+                            login={this.state.login}
+                        />
+                </div>
+            </div>
+        );
+    }
 }
 
 // exports

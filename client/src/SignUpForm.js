@@ -1,5 +1,10 @@
+// SignUpForms.js
+// ==============================
+
+// imports
 import React from "react";
 
+// component
 const SignUpForm = props => {
   const {
     handleChange,
@@ -52,4 +57,5 @@ const SignUpForm = props => {
   );
 };
 
+// exports
 export default SignUpForm;

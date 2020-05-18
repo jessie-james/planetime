@@ -1,9 +1,11 @@
 // booking.js
 // ==============================
 
+// import/instaniate Schema
 const mongoose = require("mongoose") 
 const Schema = mongoose.Schema
 
+// Schema
 const bookingSchema = new Schema({
     startDate: {
         type: Date, 
@@ -30,6 +32,11 @@ const bookingSchema = new Schema({
         type: Boolean,
         required: true
     }
+    // pilotLicenseUrl: {
+    //     type: String,
+    //     required: false
+    // }
 })
 
+// exports
 module.exports = mongoose.model("Booking", bookingSchema)

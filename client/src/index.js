@@ -1,16 +1,21 @@
+// index.js
+// ==============================
+
+// imports
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
-import ClientProvider from './context/ClientProvider.js'
+import BookingProvider from './context/BookingProvider.js'
 import UserProvider from './context/UserProvider.js'
 
+// Mount the DOM
 ReactDOM.render(
             <BrowserRouter>
-                <ClientProvider>
+                <BookingProvider>
                     <UserProvider>
                         <App />
                     </UserProvider>
-                </ClientProvider>
+                </BookingProvider>
             </BrowserRouter>
    , document.getElementById('root'))

@@ -18,17 +18,17 @@ class UserProvider extends Component {
     };
   }
 
-  // signup = credentials => {
-  //   axios
-  //     .post("./auth/signup", credentials)
-  //     .then(res => {
-  //       const { user, token } = res.data;
-  //       localStorage.setItem("user", JSON.stringify(user));
-  //       localStorage.setItem("token", token);
-  //       this.setState({ user, token });
-  //     })
-  //     .catch(err => console.log(err));
-  // };
+  signup = credentials => {
+    axios
+      .post("./auth/signup", credentials)
+      .then(res => {
+        const { user, token } = res.data;
+        localStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("token", token);
+        this.setState({ user, token });
+      })
+      .catch(err => console.log(err));
+  };
 
   login = credentials => {
     axios
@@ -49,7 +49,8 @@ class UserProvider extends Component {
           value={{
             ...this.state,
             // signup: this.signup,
-            login: this.login
+            login: this.login,
+              signup: this.signup
           }}
         >
           {this.props.children}

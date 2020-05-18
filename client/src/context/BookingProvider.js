@@ -1,6 +1,9 @@
 // BookingProvider.js
 // ==============================
 
+// manages "stage" of transactions
+// adds data to objects needed to send to 
+
 // imports
 import React, { Component } from "react";
 import axios from 'axios'
@@ -14,12 +17,20 @@ class BookingProvider extends Component {
     super();
     this.state = {
       // Dates and times nad things
+      stage: "cart",
+      // times and date   
       firstName: "",
       lastName: "",
       birthDay: "",
       pilotLicenseUrl: ""
+      // startTime: "",
+      // startDate: new Date(),
+      // endTime: "",
+      // endDate: new Date(),
     };
   }
+
+  // advanceStage = 
 
   handleChange = e => {
     const { name, value } = e.target;
@@ -28,26 +39,10 @@ class BookingProvider extends Component {
     });
   };
 
-  // do we need this
-  // getClients = () => {
-  //   axios
-  //     .get("/client")
-  //     .then(res =>{
-  //       this.setState({
-  //         dates and times and things
-  //         firstName: res.data,
-  //         lastName: res.data,
-  //         birthDay: res.data,
-  //         pilotLicenseUrl: res.data
-  //       });
-  //     })
-  //     .catch(err => console.log(err));
-  // };
-
   render() {
     return (
       <div>
-        <ClientContext.Provider
+        <BookingContext.Provider
           value={{
             firstName: this.state.firstName,
             lastName: this.state.lastName,
@@ -57,7 +52,7 @@ class BookingProvider extends Component {
           }}
         >
           {this.props.children}
-        </ClientContext.Provider>
+        </BookingContext.Provider>
       </div>
     );
   }
