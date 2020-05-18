@@ -1,9 +1,13 @@
+// Header.js
+// ==============================
+
+// imports
 import React from "react";
 import {Link} from "react-router-dom";
-
 // import "../styles/navbar.css";
 
-function Header() {
+// component
+const Header = () => {
     return (
         <header className="header">
             <div className="wrapper">
@@ -20,4 +24,5 @@ function Header() {
     );
 }
 
+// exports
 export default Header;

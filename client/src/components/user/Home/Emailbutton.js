@@ -1,6 +1,11 @@
-import React, {Component} from 'react';
-// import emailjs from 'emailjs-com';
+// EmailButton.js
+// ==============================
 
+// imports
+import React, {Component} from 'react';
+	// import emailjs from 'emailjs-com';
+
+// component	
 class Emailbutton extends Component {
   constructor(props) {
 	super(props);
@@ -49,4 +54,5 @@ class Emailbutton extends Component {
   }
 }
 
+// exports
 export default Emailbutton

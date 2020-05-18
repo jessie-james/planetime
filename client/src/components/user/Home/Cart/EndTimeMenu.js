@@ -1,6 +1,11 @@
+// EndTimeMenu.js
+// ==============================
+
+// imports
 import React from 'react'
 import {timeArr} from '../_times'
 
+// component
 class StartTimeMenu extends React.Component {
     state = {
         menuToggle: false
@@ -53,4 +58,5 @@ class StartTimeMenu extends React.Component {
 
 }
 
+// exports
 export default StartTimeMenu

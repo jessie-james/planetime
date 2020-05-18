@@ -1,3 +1,6 @@
+// Cart.js
+// ==============================
+
 import React from 'react';
 
 import StartTimeMenu from "./StartTimeMenu";
@@ -7,6 +10,7 @@ import CalendarDate from 'react-calendar'
 import {v4} from 'uuid'
 import axios from 'axios'
 
+// component
 class Cart extends React.Component {
     state = {
         browserWidth: window.innerWidth,
@@ -53,24 +57,27 @@ class Cart extends React.Component {
     }
 
     createBooking = () => {
-        const startDate = this.state.startDate
-        const endDate = this.state.endDate
-
-        const startTime = this.state.startTime.split(":")
-        const endTime = this.state.endTime.split(":")
-
-        const bookingStart = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate(), startTime[0], startTime[1])
-        const bookingEnd = new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate(), endTime[0], endTime[1])
-        const bookingData = {
-            startDate: bookingStart.toISOString(),
-            endDate: bookingEnd.toISOString()
+        const { startDate, endDate, startTime, endTime} = this.state
+        if (startDate && endDate && startTime && endTime) {
+            const startTime = startTime.split(":")
+            const endTime = endTime.split(":")
+    
+            const bookingStart = new Date(startDate.getFullYear(), startDate.getMonth(), startDate.getDate(), startTime[0], startTime[1])
+            const bookingEnd = new Date(endDate.getFullYear(), endDate.getMonth(), endDate.getDate(), endTime[0], endTime[1])
+            const bookingData = {
+                startDate: bookingStart.toISOString(),
+                endDate: bookingEnd.toISOString()
+            }
+            axios.post(`http://localhost:3000/booking`, bookingData)
+    
+    
+            console.log(bookingStart)
+            console.log(bookingEnd)
+            // console.log(bookingEnd)
+            // redirects to the checkout url and adds the start and end times/dates to the booking provider
+            
         }
-        axios.post(`http://localhost:3000/booking`, bookingData)
 
-
-        console.log(bookingStart)
-        console.log(bookingEnd)
-        // console.log(bookingEnd)
     }
 
     componentDidMount() {
@@ -117,20 +124,7 @@ class Cart extends React.Component {
                     <DateSelect type={"end"} setDate={this.setDate}/>
                     <EndTimeMenu setTime={this.setTime}/>
                 </div>
-                {/*{this.state.selectedDates.map(date => {*/}
-                {/*    console.log(date)*/}
-                {/*    return (*/}
-                {/*        <div className={"cart__date"}>*/}
-                {/*            <p>{date.toLocaleString()} <span className={"cart__remove-date"}*/}
-                {/*                                             onClick={() => this.handleClickRemove(date)}>Remove Date</span>*/}
-                {/*            </p>*/}
-                {/*            <div className={"cart__time-block-container"}>*/}
-                {/*                <StartTimeMenu setTime={this.setTime}/>*/}
-                {/*                <EndTimeMenu setTime={this.setTime}/>*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
-                {/*    )*/}
-                {/*})}*/}
+
                 <p className="cart__important">
                     <span>*IMPORTANT* </span> Only a $10 deposit is due at checkout. Hourly rate is due upon
                     returning the plane. You will only be charged for the time that the plane is actually in the
@@ -160,4 +154,5 @@ class Cart extends React.Component {
     }
 }
 
+// exports
 export default Cart

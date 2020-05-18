@@ -1,3 +1,5 @@
+// App.js
+//===============================
 
 // imports
 import React, { Component } from "react";
@@ -7,7 +9,8 @@ import Home from "./components/user/Home/Home";
 import Header from "./components/user/Header";
 import Footer from "./components/user/Footer";
 import Pilotupload from "./components/user/Home/Pilotupload";
-import CheckoutForm from "./components/user/Home/CheckoutForm"
+import CheckoutContainer from "./components/user/Checkout/CheckoutContainer"
+import Charged from "./components/user/Home/Charged"
 import Auth from "./Auth.js";
 import { withUser } from "./context/UserProvider.js";
 import { StripeProvider, Elements } from 'react-stripe-elements'
@@ -59,7 +62,13 @@ class App extends Component {
               <Route
                 path="/checkout"
                 render={rProps =>
-                  token ? <Redirect to="/" /> : <CheckoutForm />
+                  token ? <Redirect to="/" /> : <CheckoutContainer />
+                }
+              />
+              <Route
+                path="/charged"
+                render={rProps =>
+                  token ? <Redirect to="/" /> : <Charged />
                 }
               />
             </Switch>
@@ -72,4 +81,5 @@ class App extends Component {
   }
 }
 
+// export
 export default withUser(App);

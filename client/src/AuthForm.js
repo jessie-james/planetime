@@ -1,7 +1,23 @@
+// AuthForm.js
+// ==============================
+
+// import
 import React from "react";
 
+// component
 const AuthForm = props => {
-    const {handleChange, handleSubmit, username, password, password2, firstName, lastName, streetAddress, city, state, zip, btnText} = props;
+    const {handleChange, 
+        handleSubmit, 
+        username, 
+        password, 
+        password2, 
+        firstName, 
+        lastName, 
+        streetAddress, 
+        city, 
+        state, 
+        zip, 
+        btnText} = props;
 
     return (
         <div className="wrapper">
@@ -125,9 +141,9 @@ const AuthForm = props => {
                     <br/>
                 </form>
             )}
-
         </div>
     );
 };
 
+// exports
 export default AuthForm;

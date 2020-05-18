@@ -1,5 +1,10 @@
+// PlaneGallery.js
+// ==============================
+
+// imports
 import React from 'react'
 
+// component
 const PlaneGallery = () => {
     return (
         <div className='plane-gallery-grid'>
@@ -10,4 +15,5 @@ const PlaneGallery = () => {
     )
 }
 
+// exports
 export default PlaneGallery

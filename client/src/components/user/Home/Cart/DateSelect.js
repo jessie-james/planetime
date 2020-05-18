@@ -1,28 +1,33 @@
+// DateSelect.js
+// ==============================
+
+// imports
 import React from 'react'
 import CalendarDate from 'react-calendar'
-class DateSelect extends React.Component{
-    state={
+
+// component
+class DateSelect extends React.Component {
+    state = {
         date: new Date(),
         menuToggle: false
-}
+    }
 
-onChange = date =>{
-        const type= this.props.type
+    onChange = date => {
+        const type = this.props.type
         this.setState({
             date: date
         })
         this.toggleMenu()
-       
         this.props.setDate(type, date)
-}
-toggleMenu=()=>{
+    }
+    toggleMenu = () => {
         this.setState({
             menuToggle: !this.state.menuToggle
         })
-}
-render(){
+    }
+    render() {
         console.log(this.state.date)
-        return(
+        return (
             <div className={"cart__date-wrapper"}>
                 <div className={"cart__date-select"} onClick={this.toggleMenu}>
                     <div className={`cart__date-selected `} onClick={this.toggleMenu}>
@@ -33,12 +38,14 @@ render(){
                 </div>
                 <div className={`cart__calendar-drop-down ${!this.state.menuToggle && "cart__calendar-drop-down--closed"}`} >
                     <CalendarDate
-                    onChange={this.onChange}
-                    className={"calendar"}
+                        onChange={this.onChange}
+                        className={"calendar"}
                     />
                 </div>
             </div>
         )
+    }
 }
-}
+
+//exports
 export default DateSelect

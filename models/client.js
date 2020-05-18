@@ -1,6 +1,11 @@
+// client.hs
+// ==============================
+
+// imports/instantiate Schema
 const mongoose = require("mongoose")
 const Schema = mongoose.Schema
 
+// Schema
 const clientSchema = new Schema({
     firstName: {
         type: String,
@@ -14,10 +19,7 @@ const clientSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    pilotLicenseUrl: {
-        type: String,
-        required: false
-    }
+    
 })
 
 module.exports = mongoose.model("Client", clientSchema)

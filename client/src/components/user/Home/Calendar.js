@@ -1,12 +1,15 @@
+// Calendar.js
+// ==============================
+
+// imports
 import React, {Component} from 'react'
 import CalendarDate from 'react-calendar'
 import axios from 'axios'
 import Cart from './Cart/Cart'
-import Times from './Times'
 
+// component
 class Calendar extends Component {
-
-    state = {
+   state = {
         user: "",
         date: new Date(),
         selectedDates: [],
@@ -34,7 +37,6 @@ class Calendar extends Component {
         this.setState({display: !this.state.display})
         console.log("success")
     }
-
     startSelect = (e) => {
         e.preventDefault()
         this.setState({
@@ -42,7 +44,6 @@ class Calendar extends Component {
             dayMode: !this.state.dayMode
         })
     }
-
 
     //get all bookings
     getBookings = () => {
@@ -99,4 +100,5 @@ class Calendar extends Component {
     }
 }
 
+// export
 export default Calendar

@@ -1,6 +1,9 @@
-import React from 'react'
+//ClientLogin.js
 
-class clientLogin extends Component {
+
+import React from './node_modules/react'
+
+class ClientLogin extends Component {
     contructor(props) {
         super(props)
         this.state = {

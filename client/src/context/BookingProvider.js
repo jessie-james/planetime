@@ -1,18 +1,36 @@
+// BookingProvider.js
+// ==============================
+
+// manages "stage" of transactions
+// adds data to objects needed to send to 
+
+// imports
 import React, { Component } from "react";
 import axios from 'axios'
 
-const ClientContext = React.createContext();
+// instantiate Context
+const BookingContext = React.createContext();
 
-class ClientProvider extends Component {
+// component
+class BookingProvider extends Component {
   constructor() {
     super();
     this.state = {
+      // Dates and times nad things
+      stage: "cart",
+      // times and date   
       firstName: "",
       lastName: "",
       birthDay: "",
       pilotLicenseUrl: ""
+      // startTime: "",
+      // startDate: new Date(),
+      // endTime: "",
+      // endDate: new Date(),
     };
   }
+
+  // advanceStage = 
 
   handleChange = e => {
     const { name, value } = e.target;
@@ -21,24 +39,10 @@ class ClientProvider extends Component {
     });
   };
 
-  getClients = () => {
-    axios
-      .get("/client")
-      .then(res =>{
-        this.setState({
-          firstName: res.data,
-          lastName: res.data,
-          birthDay: res.data,
-          pilotLicenseUrl: res.data
-        });
-      })
-      .catch(err => console.log(err));
-  };
-
   render() {
     return (
       <div>
-        <ClientContext.Provider
+        <BookingContext.Provider
           value={{
             firstName: this.state.firstName,
             lastName: this.state.lastName,
@@ -48,17 +52,18 @@ class ClientProvider extends Component {
           }}
         >
           {this.props.children}
-        </ClientContext.Provider>
+        </BookingContext.Provider>
       </div>
     );
   }
 }
 
-export default ClientProvider;
+// exports
+export default BookingProvider;
 
-//functional programming paradigm
+  //functional programming paradigm/export
 export const withClients = C => props => (
-  <ClientContext.Consumer>
+  <BookingContext.Consumer>
     {value => <C {...value} {...props} />}
-  </ClientContext.Consumer>
+  </BookingContext.Consumer>
 );

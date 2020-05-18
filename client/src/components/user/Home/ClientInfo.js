@@ -1,8 +1,12 @@
+// Clientinf.js
+// ==============================
+
+// imports
 import React from "react";
 import '.././styles/clientpage.css'
 import Calander from "../User/Calander";
 
-
+// component
 const ClientInfo = (props) => {
   const { firstName } = props
 
@@ -19,4 +23,5 @@ const ClientInfo = (props) => {
   );
 };
 
+// exports
 export default ClientInfo

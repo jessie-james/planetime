@@ -1,10 +1,12 @@
-import React, {Component} from 'react';
+// PilotUpload.js
+// ==============================
 
+// imports
+import React, {Component} from 'react';
 import {storage} from '../../../components/user/Home/firebase/Firebase'
 
-
-
-class Pilotupload extends Component {
+// component
+class PilotUpload extends Component {
     constructor() {
         super()
         this.state = {
@@ -61,4 +63,6 @@ class Pilotupload extends Component {
         
     }
 }
-export default Pilotupload
+
+// exports
+export default PilotUpload

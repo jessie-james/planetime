@@ -1,8 +1,13 @@
+// Footer.js
+// ==============================
+
+// imports
 import React, { Component } from "react";
 import Emailbutton from "./Home/Emailbutton.js";
-// import "../styles/footer.css";
-// import Pilotupload from "./Pilotupload"
+  // import "../styles/footer.css";
+  // import Pilotupload from "./Pilotupload"
 
+// component
 class Footer extends Component {
   constructor() {
     super();
@@ -41,4 +46,5 @@ class Footer extends Component {
   }
 }
 
+// exports
 export default Footer;

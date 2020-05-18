@@ -1,28 +1,21 @@
+// index.js
+// ==============================
+
+// imports
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
-import ClientProvider from './context/ClientProvider.js'
+import BookingProvider from './context/BookingProvider.js'
 import UserProvider from './context/UserProvider.js'
-// import { StripeProvider, Elements } from 'react-stripe-elements'
 
+// Mount the DOM
 ReactDOM.render(
-
-//    <StripeProvider 
-    /* stripe={null}  */
-        // apiKey={
-        // process.env.REACT_APP_PUBLISHABLE_TEST_APIKEY
-        // || process.env.REACT_APP_PUBLISHABLE_LIVE_APIKEY
-        // } 
-        // >
-        // <Elements>
             <BrowserRouter>
-                <ClientProvider>
+                <BookingProvider>
                     <UserProvider>
                         <App />
                     </UserProvider>
-                </ClientProvider>
+                </BookingProvider>
             </BrowserRouter>
-//         </Elements>
-//    </StripeProvider> 
    , document.getElementById('root'))

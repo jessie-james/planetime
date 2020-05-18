@@ -1,10 +1,15 @@
-import React, {Component} from 'react'
+// Home.js
+// ==============================
+
+// imports
+import React, { Component } from 'react'
 
 import PlaneInfo from './PlaneInfo'
 import Cart from './Cart/Cart'
 import Auth from '../../../Auth'
 import planeImage from '../../../assets/images/plane.jpg'
 
+// component
 class Home extends Component {
     constructor(props) {
         super()
@@ -53,6 +58,7 @@ class Home extends Component {
     }
 }
 
+// exports
 export default Home
 
 

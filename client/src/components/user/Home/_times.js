@@ -1,5 +1,10 @@
+//_times.js
+// ==============================
+
+// import
 import v4 from "uuid/dist/esm-browser/v4";
 
+// data/export
 export const timeArr = [
     {hours: "00", minutes: "00", key: v4()},
     {hours: "00", minutes: "15", key: v4()},

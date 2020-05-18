@@ -1,6 +1,11 @@
+// PlaneInfo.js
+// ==============================
+
+// imports
 import React from 'react'
 import planeImage from "../../../assets/images/plane.jpg";
 
+// component
 class PlaneInfo extends React.Component {
     render() {
         return (
@@ -36,4 +41,6 @@ class PlaneInfo extends React.Component {
         )
     }
 }
+
+// exports
 export default PlaneInfo
