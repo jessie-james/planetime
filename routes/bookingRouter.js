@@ -4,11 +4,23 @@
 //imports
 const express = require("express")
 const bookingRouter = express.Router()
-const Booking = require("../models/booking.js")
+const bookingModel = require("../models/booking");
 
 // get
+bookingRouter.post("/", (req, res) => {
+    let booking = new bookingModel(req.body)
+    booking.save((err, savedBooking) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send(err);
+        } else {
+            console.log("booking successfully added to the database");
+            return res.send(savedBooking);
+        }
+    })
+})
 bookingRouter.get("/", (req, res, next) => {
-    Booking.find((err, booking)=>{
+    bookingModel.find((err, booking)=>{ 
         if(err){
             res.status(500);
             next(err);

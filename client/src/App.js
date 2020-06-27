@@ -10,7 +10,7 @@ import Header from "./components/user/Header";
 import Footer from "./components/user/Footer";
 import Pilotupload from "./components/user/Home/Pilotupload";
 import CheckoutContainer from "./components/user/Checkout/CheckoutContainer"
-import Charged from "./components/user/Home/Charged"
+import Confirmation from "./components/user/Home/Charged"
 import Auth from "./Auth.js";
 import { withUser } from "./context/UserProvider.js";
 import { StripeProvider, Elements } from 'react-stripe-elements'
@@ -66,14 +66,12 @@ class App extends Component {
                 }
               />
               <Route
-                path="/charged"
+                path="/confirmation"
                 render={rProps =>
-                  token ? <Redirect to="/" /> : <Charged />
+                  token ? <Redirect to="/" /> : <Confirmation />
                 }
               />
             </Switch>
-            {/*<Pilotupload />*/}
-            {/*<Footer />*/}
           </div>
         </Elements>
       </StripeProvider>

@@ -7,6 +7,14 @@ const Schema = mongoose.Schema
 
 // Schema
 const bookingSchema = new Schema({
+    startTime: {
+        type: String,
+        required: true
+    },
+    endTime: {
+        type: String,
+        required: true
+    },
     startDate: {
         type: Date, 
         required: true
@@ -20,22 +28,53 @@ const bookingSchema = new Schema({
         ref: "User",
         required: true
     },
+    firstName: {
+        type: String,
+        required: true
+    },
+    lastName: {
+        type: String,
+        required: true
+    },
     email: {
         type: String,
         required: true
     },
-    bookingAddress: {
+    bookingAddressLine1: {
         type: String,
-        required: true,
+        required: true
+    },
+    bookingAddressLine2: {
+        type: String
+    },
+    city: {
+        type: String,
+        required: true
+    },
+    state: {
+        type: String,
+        required: true
+    },
+    zip: {
+        type: String,
+        required: true
+    },
+    // pilotLiscenceURL: {
+    //     type: String,
+    //     required: true
+    // },
+    // insuranceURL: {
+    //     type: String,
+    //     required: true
+    // },
+    pilotLiscenceNumber: {
+        type: String,
+        required: true
     },
     refunded: {
         type: Boolean,
-        required: true
+        default: false
     }
-    // pilotLicenseUrl: {
-    //     type: String,
-    //     required: false
-    // }
 })
 
 // exports

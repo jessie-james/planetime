@@ -16,6 +16,7 @@ class UserProvider extends Component {
       user: {},
       token: ""
     };
+    
   }
 
   signup = credentials => {
@@ -29,6 +30,11 @@ class UserProvider extends Component {
       })
       .catch(err => console.log(err));
   };
+
+  addUserData = data => {
+
+  }
+
 
   login = credentials => {
     axios
@@ -48,9 +54,10 @@ class UserProvider extends Component {
         <UserContext.Provider
           value={{
             ...this.state,
-            // signup: this.signup,
             login: this.login,
-              signup: this.signup
+            signup: this.signup,
+            addUserData: this.addUserData
+
           }}
         >
           {this.props.children}
