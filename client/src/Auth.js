@@ -5,7 +5,10 @@
 import React, {Component} from "react";
 import AuthForm from "./AuthForm";
 import {withUser} from "./context/UserProvider.js";
-
+=======
+import React, {Component} from "react";
+import AuthForm from "./AuthForm";
+import {withUser} from "./context/UserProvider.js";
 // import SignUpForm from "./SignUpForm";
 
 // component  
@@ -19,7 +22,6 @@ class Auth extends Component {
             login: true,
         };
     }
-
 
     handleChange = e => {
         const {name, value} = e.target;

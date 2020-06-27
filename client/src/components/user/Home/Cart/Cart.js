@@ -1,7 +1,6 @@
 // Cart.js
 // ==============================
 
-// imports
 import React from 'react';
 
 import StartTimeMenu from "./StartTimeMenu";
@@ -12,7 +11,7 @@ import CalendarDate from 'react-calendar'
 import {v4} from 'uuid'
 import axios from 'axios'
 
-// components
+// component
 class Cart extends React.Component {
     state = {
         browserWidth: window.innerWidth,
@@ -74,6 +73,7 @@ class Cart extends React.Component {
             // redirects to the checkout url and adds the start and end times/dates to the booking provider
             
         }
+
     }
 
     componentDidMount() {
@@ -120,6 +120,7 @@ class Cart extends React.Component {
                     <DateSelect type={"end"} setDate={this.setDate}/>
                     <EndTimeMenu setTime={this.setTime}/>
                 </div>
+
                 <p className="cart__important">
                     <span>*IMPORTANT* </span> Only a $10 deposit is due at checkout. Hourly rate is due upon
                     returning the plane. You will only be charged for the time that the plane is actually in the

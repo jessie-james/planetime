@@ -141,7 +141,6 @@ const AuthForm = props => {
                     <br/>
                 </form>
             )}
-
         </div>
     );
 };
