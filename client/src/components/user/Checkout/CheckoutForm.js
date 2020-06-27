@@ -56,7 +56,27 @@ const CheckoutForm = props => {
     <div>
       <p>Enter you credit card info here</p>
       <p style={{ color: "red" }}>don't really enter your credit info you dingdongs this is still in the beta!</p>
-      <form action="">
+      <form className="checkout_form" action="">
+        <label htmlFor=""></label>
+        <p>First Name</p>
+        <input id="firstName" name="firstName" type="text" />
+        <p>Last Name</p>
+        <input id="lastName" name="lastName" type="text" />
+        <p>Email Address</p>
+        <input id="email" name="email" type="text" />
+        <h3>Mailing Address</h3>
+        <p>Street Address Line 1</p>
+        <input id="bookingAddressLine1" name="bookingAddressLine1" type="text" />
+        <p>Street Address Line 2</p>
+        <input id="bookingAddressLine2" name="bookingAddressLIne2" type="text"/>
+        <p>City</p>
+        <input id="city" name="city" type="text" />
+        <p>State</p>
+        <input id="state" name="state" type="text" />
+        <p>Zip</p>
+        <input id="zip" name="zip" type="text" />
+        <p>Pilot Liscence Number</p>
+        <input id="liscenceNumber" name="liscenceNumber" type="text" />
         <CardElement />
         <button onClick={handleSubmit}>Purchase</button>
       </form>

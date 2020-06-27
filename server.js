@@ -16,7 +16,6 @@ const path = require("path")
 app.use('/', express.json())
 app.use(express.static(path.join(__dirname, "client", "build")))
 app.use(morgan("dev")) //logger
-app.use("/api/client", require('./routes/clientRouter.js'))
 
 //routes
 app.use("/booking", require("./routes/bookingRouter.js"))

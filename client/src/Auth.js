@@ -19,12 +19,6 @@ class Auth extends Component {
             username: "",
             password: "",
             password2: "",
-            firstName: "",
-            lastName: "",
-            streetAddress: "",
-            city: "",
-            state: "",
-            zip: "",
             login: true,
         };
     }
@@ -55,16 +49,11 @@ class Auth extends Component {
                 credentials = {
                     username: this.state.username,
                     password: this.state.password,
-                    password2: this.state.password2,
-                    firstName: this.state.firstName,
-                    lastName: this.state.lastName,
-                    streetAddress: this.state.streetAddress,
-                    city: this.state.city,
-                    state: this.state.state,
-                    zip: this.state.zip,
+                    password2: this.state.password2
                 }
                 console.log(credentials)
                 this.props.signup(credentials)
+                this.props.addUserData()
                 console.log("submit is firing")
               // this.props.history.push("/Home")
                 break;
@@ -75,8 +64,7 @@ class Auth extends Component {
     clearInputs = () => {
         this.setState({
             username: "",
-            password: "",
-            // password2: ""
+            password: ""
         });
     };
 

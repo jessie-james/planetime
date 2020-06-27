@@ -6,6 +6,7 @@ import React from 'react';
 import StartTimeMenu from "./StartTimeMenu";
 import EndTimeMenu from "./EndTimeMenu";
 import DateSelect from './DateSelect'
+import { withBooking } from "../../../../context/BookingProvider"
 import CalendarDate from 'react-calendar'
 import {v4} from 'uuid'
 import axios from 'axios'
@@ -16,17 +17,11 @@ class Cart extends React.Component {
         browserWidth: window.innerWidth,
         mobile: window.innerWidth < 767 ? true : false,
         date: new Date(),
-        // selectedDates: [],
         startTime: "",
         startDate: new Date(),
         endTime: "",
         endDate: new Date(),
-        // bookingStart: "",
-        // bookingEnd: "",
-        // startTimeSelected: false,
-        // selectedDates: this.props.selectedDates,
     }
-
 
     setTime = (type, time) => {
         switch (type) {
@@ -42,6 +37,7 @@ class Cart extends React.Component {
                 break;
         }
     }
+
     setDate = (type, date) => {
         switch (type) {
             case "start":
@@ -155,4 +151,4 @@ class Cart extends React.Component {
 }
 
 // exports
-export default Cart
+export default withBooking(Cart)

@@ -7,30 +7,114 @@
 // imports
 import React, { Component } from "react";
 import axios from 'axios'
+import { withRouter } from "react-router-dom";
 
-// instantiate Context
-const BookingContext = React.createContext();
+// instantiate Context/export and history
+export const BookingContext = React.createContext();
 
 // component
 class BookingProvider extends Component {
+  
+
   constructor() {
     super();
     this.state = {
-      // Dates and times nad things
       stage: "cart",
-      // times and date   
+      // times and date  
+      startTime: "",
+      startDate: new Date(),
+      endTime: "",
+      endDate: new Date(),
+      cost: "",
       firstName: "",
       lastName: "",
-      birthDay: "",
-      pilotLicenseUrl: ""
-      // startTime: "",
-      // startDate: new Date(),
-      // endTime: "",
-      // endDate: new Date(),
-    };
+      bookingAddressLine1: "",
+      bookingAddressLine2: "",
+      city: "",
+      state: "",
+      zip: "",
+      // pilotLIscenceURL: "",
+      // insuranceURL: "",
+      pilotLiscenceNumber: ""
+    }; 
   }
 
-  // advanceStage = 
+  advanceStage = () => {
+    let { stage } = this.state,
+     { history } = this.props
+    if (stage === "cart") {
+      this.setState(prevState => ({
+        ...prevState,
+        stage: "checkout"
+      })
+      )
+      history.push("/checkout")
+    } else if (stage === "checkout") {
+      this.setState(prevState => ({
+        ...prevState,
+        stage: "checkedout"
+      })
+      )
+      history.push("/confirmation")
+    } else if (stage === "confirmation") {
+      this.setState(prevState => ({
+        ...prevState,
+        stage: "cart"
+      })
+      )
+      history.push("/")
+    }
+  }
+
+  addDatesAndTimes = (data) => {
+    let { startTime, startDate, endTime, endDate } = data
+    this.setState = (prevState => ({
+      ...prevState,
+      startTime,
+      startDate,
+      endTime,
+      endDate
+    }))
+  }
+
+  resetStage = () => {
+    
+  }
+ 
+  // postBooking = data => {
+  //   let { startTime,
+  //         endTime,
+  //         startDate,
+  //         endDate,
+  //         firstName, 
+  //         lastName,
+  //         email,
+  //         bookingAddressLine1,
+  //         bookingAddressLine2,
+  //         city,
+  //         state,
+  //         zip,
+  //         pilotLiscenceNumber
+  //   } = this.state
+  //   let data = {
+  //         startTime,
+  //         endTime,
+  //         startDate,
+  //         endDate,
+  //         firstName, 
+  //         lastName,
+  //         email,
+  //         bookingAddressLine1,
+  //         bookingAddressLine2,
+  //         city,
+  //         state,
+  //         zip,
+  //         pilotLiscenceNumber
+  //   }
+  //   axios.post("./booking", data)
+  //     .then()
+  //     .catch()
+  // }
 
   handleChange = e => {
     const { name, value } = e.target;
@@ -40,16 +124,14 @@ class BookingProvider extends Component {
   };
 
   render() {
+    const props = {
+      advanceStage: this.advanceStage,
+      ...this.state
+    }
     return (
       <div>
         <BookingContext.Provider
-          value={{
-            firstName: this.state.firstName,
-            lastName: this.state.lastName,
-            birthDay: this.state.birthDay,
-            pilotLicenseUrl: this.state.pilotLicenseUrl,
-            getClients: this.getClients
-          }}
+          value={props}
         >
           {this.props.children}
         </BookingContext.Provider>
@@ -59,10 +141,10 @@ class BookingProvider extends Component {
 }
 
 // exports
-export default BookingProvider;
+export default withRouter(BookingProvider);
 
-  //functional programming paradigm/export
-export const withClients = C => props => (
+//functional programming paradigm/export
+export const withBooking = C => props => (
   <BookingContext.Consumer>
     {value => <C {...value} {...props} />}
   </BookingContext.Consumer>
