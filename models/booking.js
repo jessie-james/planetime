@@ -1,11 +1,11 @@
-const mongoose = require("mongoose") 
-const Schema = mongoose.Schema
+const mongoose = require('mongoose'); 
+const { Schema } = mongoose;
 
-const bookingSchems = new Schema({
+const bookingSchema = new Schema({
     weekDay: {
         type: String
     },
-    month:{
+    month: {
         type: String
     },
     day: {
@@ -20,6 +20,8 @@ const bookingSchems = new Schema({
     // endTime:{
 
     // }
-})
+}, { timestamps: true });
 
-module.exports = mongoose.model("Booking", bookingSchems)
+const Booking = mongoose.model('Booking', bookingSchema);
+
+module.exports = { Booking };

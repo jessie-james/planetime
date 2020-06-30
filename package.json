@@ -30,5 +30,8 @@
     "morgan": "^1.9.1",
     "send": "^0.17.1",
     "y": "^0.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }

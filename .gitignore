@@ -21,3 +21,19 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# build output directories
+/bin
+/out
+/target
+
+# files generated at runtime
+*.log
+.lock
+.tmp
+
+# personal IDE config files
+.idea/
+.vscode/
+*.orig
+.env
