@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/jessie-james/planetime#readme",
   "dependencies": {
-    "bcrypt": "^3.0.7",
+    "bcrypt": "^5.0.0",
     "dotenv": "^8.2.0",
     "emailjs-com": "^2.4.1",
     "express": "^4.17.1",
