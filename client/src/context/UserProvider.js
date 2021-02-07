@@ -1,8 +1,14 @@
+// UserProvider.js
+// ==============================
+
+// imports
 import React, { Component } from "react";
 import axios from "axios";
 
+// instaniate Context
 const UserContext = React.createContext();
 
+// component
 class UserProvider extends Component {
   constructor() {
     super();
@@ -10,6 +16,7 @@ class UserProvider extends Component {
       user: {},
       token: ""
     };
+    
   }
 
   signup = credentials => {
@@ -23,6 +30,11 @@ class UserProvider extends Component {
       })
       .catch(err => console.log(err));
   };
+
+  addUserData = data => {
+
+  }
+
 
   login = credentials => {
     axios
@@ -42,8 +54,10 @@ class UserProvider extends Component {
         <UserContext.Provider
           value={{
             ...this.state,
+            login: this.login,
             signup: this.signup,
-            login: this.login
+            addUserData: this.addUserData
+
           }}
         >
           {this.props.children}
@@ -52,10 +66,10 @@ class UserProvider extends Component {
     );
   }
 }
-
+// exports
 export default UserProvider;
 
-//functional programming paradigm
+  //functional programming paradigm
 export const withUser = C => props => (
   <UserContext.Consumer>
     {value => <C {...value} {...props} />}

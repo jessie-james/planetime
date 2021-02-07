@@ -1,3 +1,7 @@
+// clientRouter.js
+// ==============================
+
+// imports
 const express = require("express");
 const clientRouter = express.Router();
 const Client = require("../models/client.js");
@@ -15,4 +19,5 @@ clientRouter.post("/", (req, res, next) => {
   });
 });
 
+// exports
 module.exports = clientRouter;

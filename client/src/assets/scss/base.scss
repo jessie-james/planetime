@@ -1,0 +1,44 @@
+// base.scss
+
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+a{
+  text-decoration: none;
+}
+body{
+  font-family: sans-serif;
+}
+.wrapper{
+  margin: 0 auto;
+  max-width: 90%;
+}
+.hidden{
+  display: none;
+}
+@import 'header';
+@import 'home';
+@import 'cart';
+@import 'checkout';
+
+@import 'queryMixin';
+
+@include responsive($tablet-landscape){
+.wrapper{
+  //max-width: 60%;
+}
+
+}
+@include responsive($large-desktop){
+  .wrapper{
+    max-width: 80%;
+  }
+}
+@include responsive($xl-desktop){
+  .wrapper{
+    max-width: 50%;
+  }
+}

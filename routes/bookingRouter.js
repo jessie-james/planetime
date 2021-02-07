@@ -1,9 +1,26 @@
+// bookingRouter.js
+// ==============================
+
+//imports
 const express = require("express")
 const bookingRouter = express.Router()
-const Booking = require("../models/booking.js")
+const bookingModel = require("../models/booking");
 
+// get
+bookingRouter.post("/", (req, res) => {
+    let booking = new bookingModel(req.body)
+    booking.save((err, savedBooking) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send(err);
+        } else {
+            console.log("booking successfully added to the database");
+            return res.send(savedBooking);
+        }
+    })
+})
 bookingRouter.get("/", (req, res, next) => {
-    Booking.find((err, booking)=>{
+    bookingModel.find((err, booking)=>{ 
         if(err){
             res.status(500);
             next(err);
@@ -13,6 +30,21 @@ bookingRouter.get("/", (req, res, next) => {
     })
 })
 
+//find if timeslot is available for a given day
+bookingRouter.get("/search", (req,res,next)=>{
+    console.log("query started")
+    Booking.findOne(({startDate: req.query.startDate, endDate: req.query.endDate}), (err, booking)=>{
+            if(booking === null){
+                res.send("available")
+            }else if(booking !== null){
+                res.send("unavailable")
+            }
+    })
+})
+
+
+
+// post
 bookingRouter.post("/", (req, res, next) =>{
     const newBooking = new Booking(req.body)
     newBooking.save((err, savedBooking) => {
@@ -25,6 +57,7 @@ bookingRouter.post("/", (req, res, next) =>{
     })
 })
 
+// put
 bookingRouter.put("/:_id", (req, res, next) => {
     Booking.findOneAndUpdate(
         {_id: req.params._id},
@@ -41,6 +74,7 @@ bookingRouter.put("/:_id", (req, res, next) => {
     )
 })
 
+// delete
 bookingRouter.delete("/:_id", (req, res, next) => {
     Booking.findOneAndRemove({_id: req.params._id}, (err, deletedBook) => {
         if(err){
@@ -52,4 +86,5 @@ bookingRouter.delete("/:_id", (req, res, next) => {
     })
 })
 
+// exports
 module.exports = bookingRouter

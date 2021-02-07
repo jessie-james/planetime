@@ -1,0 +1,125 @@
+// _cart.scss
+
+@import 'queryMixin';
+.cart {
+
+  &--closed{
+    display: none;
+
+  }
+  &__date{
+  }
+  &__date-time-container{
+    display: flex;
+  }
+
+  &__label{
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 5px;
+  }
+  @import 'dateSelect';
+  @import 'startEndTime';
+  &__checkout{
+
+    overflow: hidden;
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 10px;
+    width: 90%;
+    border-radius: 5px;
+    background-color: #64A4D1;
+    color: white;
+    font-size: 18px;
+
+  }
+  &__important{
+    margin-top: 30px;
+    span{
+      color: red;
+    }
+  }
+  &__amount-due{
+    margin-top: 30px;
+    margin-bottom: 15px;
+    display: flex;
+  }
+  &__amount-due-price{
+    margin-left: auto;
+  }
+  &__estimated-total{
+    display: flex;
+  }
+  &__estimated-total-price{
+    margin-left: auto;
+  }
+}
+
+@include responsive($tablet-landscape){
+  .cart {
+    margin-left: 8px;
+    wrapper{
+      max-width:100%;
+    }
+    width: 50%;
+    &--closed{
+      display: none;
+
+    }
+    &__date{
+    }
+    &__date-time-container{
+      display: flex;
+    }
+
+    &__label{
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 5px;
+    }
+    @import 'dateSelect';
+    @import 'startEndTime';
+    &__checkout{
+
+      overflow: hidden;
+      display: block;
+      margin: 0 auto;
+      margin-top: 30px;
+      padding: 10px;
+      width: 90%;
+      border-radius: 5px;
+      background-color: #64A4D1;
+      color: white;
+      font-size: 18px;
+
+    }
+    &__important{
+      margin-top: 30px;
+      span{
+        color: red;
+      }
+    }
+    &__amount-due{
+      margin-top: 30px;
+      margin-bottom: 15px;
+      display: flex;
+    }
+    &__amount-due-price{
+      margin-left: auto;
+    }
+    &__estimated-total{
+      display: flex;
+    }
+    &__estimated-total-price{
+      margin-left: auto;
+    }
+  }
+}
+@include responsive($large-desktop){
+  .cart{
+    .wrapper{
+      max-width: 100%;
+    }
+  }
+}

@@ -1,3 +1,7 @@
+// authRouter.js
+// ==============================
+
+// imports
 const express = require("express");
 const authRouter = express.Router();
 const User = require("../models/user.js");
@@ -5,6 +9,7 @@ const jwt = require("jsonwebtoken");
 
 // Signup
 authRouter.post("/signup", (req, res, next) => {
+  console.log("hello world")
   // check to see if username is already taken
   User.findOne({ username: req.body.username.toLowerCase() }, (err, user) => {
     if (err) {
@@ -15,6 +20,8 @@ authRouter.post("/signup", (req, res, next) => {
       res.status(400);
       return next(new Error("That username is already taken."));
     }
+    console.log("this function is working")
+
   });
   // save a new user
   const newUser = new User(req.body);
@@ -26,6 +33,7 @@ authRouter.post("/signup", (req, res, next) => {
     // create the token
     const token = jwt.sign(savedUser.withoutPassword(), process.env.SECRET);
     // send the response
+
     return res.status(201).send({ user: savedUser.withoutPassword(), token });
   });
 });

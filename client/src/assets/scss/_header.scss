@@ -1,0 +1,53 @@
+// _header.scss
+
+@import 'queryMixin';
+.header {
+  padding-top: 20px;
+  .wrapper{
+    display: flex;
+    width: 100%;
+  }
+
+  &__logo {
+    width: 10%;
+    background-color: #8498C0;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  &__nav {
+    display: none;
+  }
+
+  &__nav-link {
+    color: orange;
+    margin-left: 10px;
+  }
+
+}
+@include responsive($tablet-landscape){
+  .header{
+    margin-bottom: 30px;
+
+    .wrapper{
+      max-width: 80%;
+
+    }
+    &__logo {
+      color: red;
+      width: 10%;
+    }
+
+    &__nav {
+      display: initial;
+      margin-left: auto;
+    }
+
+    &__nav-link {
+      color: orange;
+      margin-left: 10px;
+    }
+  }
+}
