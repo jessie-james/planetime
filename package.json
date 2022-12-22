@@ -24,7 +24,7 @@
     "emailjs-com": "^2.4.1",
     "express": "^4.17.1",
     "express-jwt": "^5.3.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "moment": "^2.24.0",
     "mongoose": "^5.8.9",
     "morgan": "^1.9.1",
